@@ -1,17 +1,32 @@
 class Usuario {
-    protected _id:number = 0;
-    protected _nombreUsuario:string = '';
-    protected _contrasena:string = '';
-    protected _nombre:string = '';
-    protected _apellidoP:string = '';
-    protected _apellidoM:string = '';
-    protected _fechaNac:string = '';
-    protected _email:string = '';
-    protected _telCelular:string = '';
-    protected _telFijo:string = '';
-    protected _tipo:string = '';
-    protected _status:number = 0;
+    protected _id:number;
+    protected _nombreUsuario:string;
+    protected _contrasena:string;
+    protected _nombre:string;
+    protected _apellidoP:string;
+    protected _apellidoM:string;
+    protected _fechaNac:string;
+    protected _email:string;
+    protected _telCelular:string;
+    protected _telFijo:string;
+    protected _tipo:string;
+    protected _status:number;
 
+    constructor() {
+        this._id = 0;
+        this._nombreUsuario = '';
+        this._contrasena = '';
+        this._nombre = '';
+        this._apellidoP = '';
+        this._apellidoM = '';
+        this._fechaNac = '';
+        this._email = '';
+        this._telCelular = '';
+        this._telFijo = '';
+        this._tipo = '';
+        this._status = 0;
+    }
+    
     public list():any {
         //Retorna un json con la lista de usuarios
     }

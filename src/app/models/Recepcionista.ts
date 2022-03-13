@@ -1,11 +1,18 @@
-class Recepcionista {
-    //private _citaPrototype:Cita = new Cita();
+class Recepcionista extends Usuario {
+    private _citaPrototype:Cita;
 
-    public getNuevaCita():any {
-        //return this._citaPrototype.clonar();
+    constructor() {
+        super();
+        this._citaPrototype = new Cita();
+    }
+    
+    public getNuevaCita():Cita {
+        return this._citaPrototype.clonar();
     }
 
-    public clonar():any {
+    public clonar():this {
         //Clona la instancia de medico
+        const clone = Object.create(this);
+        return clone;
     }
 }

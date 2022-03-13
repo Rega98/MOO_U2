@@ -1,12 +1,22 @@
 class Medico extends Usuario {
-    private _horarioAtencion:string = '';
-    private _diasAtencion:string = '';
-    private _tarifaConsulta:number = 0.0;
-    private citaPrototype:Cita = new Cita();
-    //private _consultaBuilder:ConsultaBuilder;
+    private _horarioAtencion:string;
+    private _diasAtencion:string;
+    private _tarifaConsulta:number;
+    private _citaPrototype:Cita;
+    private _consultaBuilder:any;
 
-    public nuevaConsulta():any {
-        //Devuleve un nuevo objeto del tipo consulta
+    constructor() {
+        super();
+        this._horarioAtencion = '';
+        this._diasAtencion = '';
+        this._tarifaConsulta = 0.0;
+        this._citaPrototype = new Cita();
+    }
+    
+    public nuevaConsulta():Consulta {
+        this._consultaBuilder = new ConsultaBuilder();
+        this._consultaBuilder.build(this.id);
+        return this._consultaBuilder.getResult();
     }
     
     public searchInfoMedico():boolean {
@@ -33,8 +43,8 @@ class Medico extends Usuario {
         return b;
     }
 
-    public getNuevaCita():any {
-        //Devuleve un nuevo objeto de tipo cita
+    public getNuevaCita():Cita {
+        return this._citaPrototype.clonar();
     }
 
     public listMedicos():any {
@@ -45,8 +55,10 @@ class Medico extends Usuario {
         //Busca las citas agendadas para el medico actual
     }
 
-    public clonar():any {
-        //Clona la instancia de medico
+    public clonar():this {
+        //Aun está pendiente de pruebas
+        const clone = Object.create(this);
+        return clone;
     }
 
     get horaAtencion():string {

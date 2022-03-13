@@ -1,13 +1,24 @@
 class Cita {
-    private _id:number = 0;
-    private _fechaRegistro:string = '';
-    private _nombrePaciente:string = '';
-    private _fechaAtencion:string = '';
-    private _horaAtencon:string = '';
-    private _observaciones:string = '';
-    private _status:string = '';
-    private _medico:Medico = new Medico();
+    private _id:number;
+    private _fechaRegistro:string;
+    private _nombrePaciente:string;
+    private _fechaAtencion:string;
+    private _horaAtencon:string;
+    private _observaciones:string;
+    private _status:string;
+    private _medico:Medico;
 
+    constructor() {
+        this._id = 0;
+        this._fechaRegistro = '';
+        this._nombrePaciente = '';
+        this._fechaAtencion = '';
+        this._horaAtencon = '';
+        this._observaciones = '';
+        this._status = '';
+        this._medico = new Medico();
+    }
+    
     public list():any {
         //Retorna un json con la lista de usuarios
     }
@@ -36,12 +47,19 @@ class Cita {
         return b;
     }
 
-    public getMedico():Medico {
+    get medico():Medico {
         return this._medico;
     }
 
-    public clonar():any {
-        //Clona la instancia de cita
+    set medico(object:Medico) {
+        this._medico = object;
+    }
+
+    public clonar():this {
+        //Aun está pendiente de pruebas
+        const clone = Object.create(this);
+        clone.medico = Object.create(this.medico);
+        return clone;
     }
 
     set id(value:number) {

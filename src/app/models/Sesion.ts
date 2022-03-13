@@ -1,12 +1,12 @@
 class Sesion {
     private _usuario:Usuario;
-    private _instancia:any = null;
+    private static _instancia:any = null;
 
     constructor(usuario:Usuario) {
         this._usuario = usuario;
     }
 
-    public getInstancia(usuario:Usuario):any {
+    public static getInstancia(usuario:Usuario):Sesion {
         if(this._instancia == null){
             this._instancia = new Sesion(usuario);
         } 
@@ -17,7 +17,7 @@ class Sesion {
         return this._usuario;
     }
 
-    public cerrarSesion():void {
+    public static cerrarSesion():void {
         this._instancia = null;
     }
 }

@@ -1,12 +1,18 @@
-class Administracion {
-    private _medicoPrototype:Medico = new Medico();
-    private _recepcionistaPrototype:Recepcionista = new Recepcionista();
+class Administracion extends Usuario {
+    private _medicoPrototype:Medico;
+    private _recepcionistaPrototype:Recepcionista;
 
-    public getNuevoMedico():any {
+    constructor() {
+        super();
+        this._medicoPrototype = new Medico();
+        this._recepcionistaPrototype = new Recepcionista();
+    }
+    
+    public getNuevoMedico():Medico {
         return this._medicoPrototype.clonar();
     }
 
-    public getNuevoRecepcionista():any {
+    public getNuevoRecepcionista():Recepcionista {
         return this._recepcionistaPrototype.clonar();
     }
 }

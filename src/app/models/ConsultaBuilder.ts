@@ -1,11 +1,15 @@
 class ConsultaBuilder {
-    //private _consulta:Consulta;
+    private _consulta:Consulta;
 
-    public build() {
-
+    constructor() {
+        this._consulta = new Consulta();
+    }
+    
+    public build(idMedico:number) {
+        this._consulta.medico.id = idMedico;
     }
 
-    public getResult() {
-
+    public getResult():Consulta {
+        return this._consulta;
     }
 }

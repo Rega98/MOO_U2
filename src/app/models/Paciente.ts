@@ -1,14 +1,27 @@
 class Paciente {
-    private _id:number = 0;
-    private _nombre:string = '';
-    private _apellidoP:string = '';
-    private _apellidoM:string = '';
-    private _sexo:string = '';
-    private _fechaNac:string = '';
-    private _tipoSangre:string = '';
-    private _alergias:string = '';
-    private _telContacto:string = '';
-    private _email:string = '';
+    private _id:number;
+    private _nombre:string;
+    private _apellidoP:string;
+    private _apellidoM:string;
+    private _sexo:string;
+    private _fechaNac:string;
+    private _tipoSangre:string;
+    private _alergias:string;
+    private _telContacto:string;
+    private _email:string;
+    
+    constructor() {
+        this._id = 0;
+        this._nombre = '';
+        this._apellidoP = '';
+        this._apellidoM = '';
+        this._sexo = '';
+        this._fechaNac = '';
+        this._tipoSangre = '';
+        this._alergias = '';
+        this._telContacto = '';
+        this._email = '';
+    }
     
     public list():any {
         //Retorna un json con la lista de Pacientes
@@ -95,7 +108,7 @@ class Paciente {
     }
 
     get alergias():string {
-        return this._fechaNac;
+        return this._alergias;
     }
 
     set alergias(value:string) {

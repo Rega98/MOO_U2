@@ -1,23 +1,46 @@
 class Consulta {
-    private _id:number = 0;
-    private _fecha:string = '';
-    private _sintomas:string = '';
-    private _peso:number = 0.0;
-    private _temperatura:number = 0.0;
-    private _frecuanciaCardiaca:number = 0.0;
-    private _estatura:number = 0.0;
-    private _descripcionAnalisisMedico:string = '';
-    private _diagnostico:string = '';
-    private _tratamiento:string = '';
-    private _paciente:Paciente = new Paciente();
-    private _medico:Medico = new Medico();
+    private _id:number;
+    private _fecha:string ;
+    private _sintomas:string;
+    private _peso:number;
+    private _temperatura:number;
+    private _frecuanciaCardiaca:number;
+    private _estatura:number;
+    private _descripcionAnalisisMedico:string;
+    private _diagnostico:string;
+    private _tratamiento:string;
+    private _paciente:Paciente;
+    private _medico:Medico;
 
-    public getPaciente():Paciente {
-        return this._paciente;
+    constructor() {
+        this._id = 0;
+        this._fecha = '';
+        this._sintomas = '';
+        this._peso = 0.0;
+        this._temperatura = 0.0;
+        this._frecuanciaCardiaca = 0.0;
+        this._estatura = 0.0;
+        this._descripcionAnalisisMedico = '';
+        this._diagnostico = '';
+        this._tratamiento = '';
+        this._paciente = new Paciente();
+        this._medico = new Medico();
     }
     
-    public getMedico():Medico {
+    get paciente():Paciente {
+        return this._paciente;
+    }
+
+    set paciente(object:Paciente) {
+        this._paciente = object;
+    }
+    
+    get medico():Medico {
         return this._medico;
+    }
+
+    set medico(object:Medico) {
+        this._medico = object;
     }
 
     public list():any {
