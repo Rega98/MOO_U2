@@ -1,4 +1,5 @@
-class Cita {
+import { Medico } from './Medico';
+export class Cita {
     private _id:number;
     private _fechaRegistro:string;
     private _nombrePaciente:string;

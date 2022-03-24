@@ -111,6 +111,7 @@ import { ConfigService } from './service/app.config.service';
 import { LoginComponent } from './components/login/login.component';
 import { ErrorComponent } from './components/error/error.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
+import { RegistrarUsuarioComponent } from './components/registrar-usuario/registrar-usuario.component';
 //import { AccessComponent } from './components/access/access.component';
 
 @NgModule({
@@ -215,6 +216,7 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
         LoginComponent,
         ErrorComponent,
         NotfoundComponent,
+        RegistrarUsuarioComponent,
     ],
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},

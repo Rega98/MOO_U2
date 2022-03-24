@@ -1,4 +1,4 @@
-class Paciente {
+export class Paciente {
     private _id:number;
     private _nombre:string;
     private _apellidoP:string;

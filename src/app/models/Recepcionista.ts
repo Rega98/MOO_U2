@@ -1,4 +1,6 @@
-class Recepcionista extends Usuario {
+import { Usuario } from './Usuario';
+import { Cita } from './Cita';
+export class Recepcionista extends Usuario {
     private _citaPrototype:Cita;
 
     constructor() {

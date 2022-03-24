@@ -1,4 +1,4 @@
-class Usuario {
+export class Usuario {
     protected _id:number;
     protected _nombreUsuario:string;
     protected _contrasena:string;

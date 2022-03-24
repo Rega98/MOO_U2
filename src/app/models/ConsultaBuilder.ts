@@ -1,4 +1,5 @@
-class ConsultaBuilder {
+import { Consulta } from './Consulta';
+export class ConsultaBuilder {
     private _consulta:Consulta;
 
     constructor() {

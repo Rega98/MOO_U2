@@ -1,4 +1,8 @@
-class Medico extends Usuario {
+import { Usuario } from './Usuario';
+import { Cita } from './Cita';
+import { Consulta } from './Consulta';
+import { ConsultaBuilder } from './ConsultaBuilder';
+export class Medico extends Usuario {
     private _horarioAtencion:string;
     private _diasAtencion:string;
     private _tarifaConsulta:number;
