@@ -46,7 +46,7 @@ export class Consulta {
     }
 
     public list():any {
-        //Retorna un json con la lista de Consultas del medico actual
+        //Retorna un json con la lista de Consultas
     }
 
     public search():boolean {

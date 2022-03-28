@@ -51,6 +51,10 @@ export class Paciente {
         return b;
     }
 
+    listHistorial():any {
+        //Retorna un json con la lista de Consultas en donde aparece el paciente
+    }
+
     get id(): number {
         return this._id;
     }

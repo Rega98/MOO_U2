@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit, OnDestroy {
           admin.id = usr.id;
           if(admin.search()){
             this.guardarSesion(admin);
-            this.redieccionaMenu();
+            this.redireccionaMenu();
           }
           break; 
         }
@@ -74,7 +74,7 @@ export class LoginComponent implements OnInit, OnDestroy {
           medico.id = usr.id;
           if(medico.search()){
             this.guardarSesion(medico);
-            this.redieccionaMenu();
+            this.redireccionaMenu();
           }
           break;
         }
@@ -83,7 +83,7 @@ export class LoginComponent implements OnInit, OnDestroy {
           recepcion.id = usr.id;
           if(recepcion.search()){
             this.guardarSesion(recepcion);
-            this.redieccionaMenu();
+            this.redireccionaMenu();
           }
           break;
         }
@@ -100,7 +100,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     Sesion.getInstancia(usr);
   }
 
-  redieccionaMenu(){
+  redireccionaMenu(){
     //Pendiente el enrutamiento de los componentes
     //this.router.navigate(['']);
   }

@@ -112,6 +112,15 @@ import { LoginComponent } from './components/login/login.component';
 import { ErrorComponent } from './components/error/error.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { RegistrarUsuarioComponent } from './components/registrar-usuario/registrar-usuario.component';
+import { ListaPersonalComponent } from './components/lista-personal/lista-personal.component';
+import { BajaPersonalComponent } from './components/baja-personal/baja-personal.component';
+import { AgendarCitaComponent } from './components/agendar-cita/agendar-cita.component';
+import { VerCitasComponent } from './components/ver-citas/ver-citas.component';
+import { CancelarCitaComponent } from './components/cancelar-cita/cancelar-cita.component';
+import { RegistraConsultaComponent } from './components/registra-consulta/registra-consulta.component';
+import { ReciboComponent } from './components/recibo/recibo.component';
+import { ListaPacientesComponent } from './components/lista-pacientes/lista-pacientes.component';
+import { HistorialPacienteComponent } from './components/historial-paciente/historial-paciente.component';
 //import { AccessComponent } from './components/access/access.component';
 
 @NgModule({
@@ -217,6 +226,15 @@ import { RegistrarUsuarioComponent } from './components/registrar-usuario/regist
         ErrorComponent,
         NotfoundComponent,
         RegistrarUsuarioComponent,
+        ListaPersonalComponent,
+        BajaPersonalComponent,
+        AgendarCitaComponent,
+        VerCitasComponent,
+        CancelarCitaComponent,
+        RegistraConsultaComponent,
+        ReciboComponent,
+        ListaPacientesComponent,
+        HistorialPacienteComponent,
     ],
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},
