@@ -1,1 +1,54 @@
-<p>ver-citas works!</p>
+<h4 class="ml-5 mt-5">Citas</h4>
+
+<div class="card ml-5 mr-5">
+
+    <p-toolbar styleClass="p-mb-4">
+        <ng-template pTemplate="left">
+            <ng-container>
+                <button pButton pRipple type="button" label="Agendar cita" class="p-button-success p-mr-2" (click)="Agregar()"></button>
+            </ng-container>
+        </ng-template>
+        <ng-template  pTemplate="right">
+            <ng-container>
+                <div class="p-input-icon-left">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" (input)="tc.filterGlobal($event.target.value, 'contains')" placeholder="Buscar..." />
+                </div>
+            </ng-container>
+        </ng-template>
+    </p-toolbar>
+
+    <br>
+    <br>
+    <br>
+
+    <p-table [value]="products" responsiveLayout="scroll" #tc [globalFilterFields]="['id','fechaRegistro','nombrePaciente','fechaAtencion', 'horaAtencon', 'observaciones', 'status' ,'medico']" >
+        <ng-template pTemplate="header">
+            <tr>
+                <th  field="id" >ID</th>
+                <th  field="fechaRegistro">Fecha de registro</th>
+                <th  field="nombrePaciente">Nombre del paciente</th>
+                <th  field="fechaAtencion">Fecha de atención</th>
+                <th  field="horaAtencon">Hora de atención</th>
+                <th  field="observaciones">Observaciones</th>
+                <th  field="status">Esatus</th>
+                <th  field="medico">Medico</th>
+                <th>Cancelar</th>
+
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-product>
+            <tr>
+                <td>{{product.id}}</td>
+                <td>{{product.fechaRegistro}}</td>
+                <td>{{product.nombrePaciente}}</td>
+                <td>{{product.fechaAtencion}}</td>
+                <td>{{product.horaAtencon}}</td>
+                <td>{{product.observaciones}}</td>
+                <td>{{product.status}}</td>
+                <td>{{product.medico}}</td>
+                <td><button pButton pRipple icon="pi pi-info-circle" class="p-button-rounded p-button-danger" (click)="cancel(product)"></button></td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

@@ -13,6 +13,14 @@ import { Usuario } from 'src/app/models/Usuario';
 export class AgendarCitaComponent implements OnInit {
   cita:Cita;
   listaMedicos:any;
+  date:Date;
+  pacintes:any;
+  selectedPaciente:any;
+  date2:Date;
+  date3:Date;
+  date4:Date;
+  dropdownItems:any;
+  selectedMeed:any;
   constructor() { }
 
   ngOnInit(): void {
@@ -25,6 +33,29 @@ export class AgendarCitaComponent implements OnInit {
       this.cita = medico.getNuevaCita();
       this.cita.id = medico.id;
     }
+
+    this.pacintes = [
+      {
+        nombre: 'Adolfo Meza',
+        id:'123133'
+      },
+      {
+        nombre: 'Uriel Reyes',
+        id:'123134'
+      },
+      {
+        nombre: 'Lisset Rosete',
+        id:'123135'
+      },
+      {
+        nombre: 'Rodolfo Elias',
+        id:'123136'
+      }
+    ]
+
+    this.dropdownItems = [
+      {nombre:'Elda Gomez'}
+    ]
   }
 
   asignaMedico(id:number):void {
