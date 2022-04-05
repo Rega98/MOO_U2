@@ -3,6 +3,7 @@ import { Cita } from './Cita';
 import { Consulta } from './Consulta';
 import { ConsultaBuilder } from './ConsultaBuilder';
 export class Medico extends Usuario {
+    private _idInfoMedico:number;
     private _horarioAtencion:string;
     private _diasAtencion:string;
     private _tarifaConsulta:number;
@@ -11,6 +12,7 @@ export class Medico extends Usuario {
 
     constructor() {
         super();
+        this._idInfoMedico = 0;
         this._horarioAtencion = '';
         this._diasAtencion = '';
         this._tarifaConsulta = 0.0;
@@ -63,6 +65,14 @@ export class Medico extends Usuario {
         //Aun está pendiente de pruebas
         const clone = Object.create(this);
         return clone;
+    }
+
+    get idInfoMedico():number {
+        return this._idInfoMedico;
+    }
+
+    set idInfoMedico(value:number) {
+        this._idInfoMedico = value;
     }
 
     get horaAtencion():string {

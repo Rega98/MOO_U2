@@ -1,0 +1,104 @@
+{
+    "data": [
+    	{
+            "id": 1,
+            "fechaRegistro": "2022-04-04",
+            "nombrePaciente": "Johan Alan Rosas Velásquez",
+            "fechaAtencion": "2022-12-08",
+            "horaAtencon": "3:00 p.m",
+            "observaciones": "N/A",
+            "status": "Pendiente",
+            "medicoAdignado": 4
+    	},
+    	{
+            "id": 2,
+            "fechaRegistro": "2022-04-04",
+            "nombrePaciente": "Osvaldo Zárraga Hernández",
+            "fechaAtencion": "2022-12-08",
+            "horaAtencon": "9:00 a.m",
+            "observaciones": "N/A",
+            "status": "Pendiente",
+            "medicoAdignado": 3
+    	},
+    	{
+    		"id": 3,
+            "fechaRegistro": "2022-04-04",
+            "nombrePaciente": "Jonathan Omar Rodriguez Sánchez",
+            "fechaAtencion": "2022-12-09",
+            "horaAtencon": "2:00 p.m",
+            "observaciones": "N/A",
+            "status": "Pendiente",
+            "medicoAdignado": 5
+    	},
+        {
+            "id": 4,
+            "fechaRegistro": "2022-04-04",
+            "nombrePaciente": "Johan Alan Rosas Velásquez",
+            "fechaAtencion": "2022-04-08",
+            "horaAtencon": "3:00 p.m",
+            "observaciones": "N/A",
+            "status": "Atendida",
+            "medicoAdignado": 4
+        },
+        {
+            "id": 5,
+            "fechaRegistro": "2022-04-04",
+            "nombrePaciente": "Osvaldo Zárraga Hernández",
+            "fechaAtencion": "2022-03-08",
+            "horaAtencon": "1:00 p.m",
+            "observaciones": "N/A",
+            "status": "Atendida",
+            "medicoAdignado": 5
+        },
+        {
+            "id": 6,
+            "fechaRegistro": "2022-04-04",
+            "nombrePaciente": "Jonathan Omar Rodriguez Sánchez",
+            "fechaAtencion": "2022-03-07",
+            "horaAtencon": "3:00 p.m",
+            "observaciones": "N/A",
+            "status": "Atendida",
+            "medicoAdignado": 3
+        },
+        {
+            "id": 4,
+            "fechaRegistro": "2022-04-04",
+            "nombrePaciente": "Johan Alan Rosas Velásquez",
+            "fechaAtencion": "2022-04-08",
+            "horaAtencon": "3:00 p.m",
+            "observaciones": "N/A",
+            "status": "Cancelada",
+            "medicoAdignado": 4
+        },
+        {
+            "id": 5,
+            "fechaRegistro": "2022-04-04",
+            "nombrePaciente": "Osvaldo Zárraga Hernández",
+            "fechaAtencion": "2022-03-08",
+            "horaAtencon": "1:00 p.m",
+            "observaciones": "N/A",
+            "status": "Cancelada",
+            "medicoAdignado": 5
+        },
+        {
+            "id": 6,
+            "fechaRegistro": "2022-04-04",
+            "nombrePaciente": "Jonathan Omar Rodriguez Sánchez",
+            "fechaAtencion": "2022-03-07",
+            "horaAtencon": "3:00 p.m",
+            "observaciones": "N/A",
+            "status": "Cancelada",
+            "medicoAdignado": 3
+        },
+        {
+            "id": 7,
+            "fechaRegistro": "2022-04-04",
+            "nombrePaciente": "Silvia Torres Salas",
+            "fechaAtencion": "2022-11-07",
+            "horaAtencon": "3:00 p.m",
+            "observaciones": "N/A",
+            "status": "Pendiente",
+            "medicoAdignado": 5
+        }
+    ]
+}

@@ -1,0 +1,40 @@
+{
+    "data": [
+    	{
+            "id": 1,
+    		"nombre": "Johan Alan",
+			"apellidoP": "Rosas",
+            "apellidoM": "Velásquez",
+            "sexo": "Masculino",
+            "fechaNac": "1996-08-16",
+            "tipoSangre": "A+",
+            "alergias": "Ninguna Alergia",
+            "telContacto": "2711234569",
+            "email": "johan@gmail.com"
+    	},
+        {
+            "id": 2,
+            "nombre": "Osvaldo",
+            "apellidoP": "Zárraga",
+            "apellidoM": "Hernández",
+            "sexo": "Masculino",
+            "fechaNac": "1996-12-07",
+            "tipoSangre": "O+",
+            "alergias": "Ninguna Alergia",
+            "telContacto": "2711234542",
+            "email": "osvaldo@gmail.com"
+        },
+        {
+            "id": 3,
+            "nombre": "Jonathan Omar",
+            "apellidoP": "Rodriguez",
+            "apellidoM": "Sánchez",
+            "sexo": "Masculino",
+            "fechaNac": "1997-07-01",
+            "tipoSangre": "B-",
+            "alergias": "Ninguna Alergia",
+            "telContacto": "2711234599",
+            "email": "jonathan@gmail.com"
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+{
+    "data": [
+    	{
+            "id": 1,
+    		"idMedico": 3,
+			"horarioAtencion": "7:00 a.m. - 5:00 p.m",
+            "diasAtencion": "Lunes, Martes, Jueves",
+            "tarifaConsulta": 250.0
+    	},
+    	{
+            "id": 1,
+            "idMedico": 4,
+            "horarioAtencion": "7:00 a.m. - 6:00 p.m",
+            "diasAtencion": "Lunes, Martes, Miercoles, Jueves, Viernes",
+            "tarifaConsulta": 200.0
+    	},
+    	{
+    		"id": 1,
+            "idMedico": 5,
+            "horarioAtencion": "7:00 a.m. - 4:00 p.m",
+            "diasAtencion": "Lunes, Miercoles, Viernes",
+            "tarifaConsulta": 300.0
+    	}
+    ]
+}
