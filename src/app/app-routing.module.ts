@@ -7,6 +7,7 @@ import { ErrorComponent } from './components/error/error.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { VerCitasComponent } from './components/ver-citas/ver-citas.component';
 import { AgendarCitaComponent } from './components/agendar-cita/agendar-cita.component';
+import { TestComponent } from './components/test/test.component';
 @NgModule({
     imports: [
         RouterModule.forRoot([
@@ -21,6 +22,7 @@ import { AgendarCitaComponent } from './components/agendar-cita/agendar-cita.com
             {path:'pages/notfound', component: NotfoundComponent},
             {path:'pages/citas', component: VerCitasComponent},
             {path:'pages/agregarcita', component: AgendarCitaComponent},
+            {path:'pages/test', component: TestComponent},
             {path: '**', redirectTo: 'pages/notfound'},
         ], {scrollPositionRestoration: 'enabled', anchorScrolling:'enabled'})
     ],

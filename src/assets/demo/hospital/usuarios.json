@@ -1,10 +1,9 @@
-{
-    "data": [
+[
     	{
             "id": 1,
-    		"nombreUsuario": "UsuarioAdmin",
-    		"contrasena": "Abc123",
-			"nombre": "Adolfo",
+    	    "nombreUsuario": "UsuarioAdmin",
+    	    "contrasena": "Abc123",
+	        "nombre": "Adolfo",
             "apellidoP": "Meza",
             "apellidoM": "Romero",
             "fechaNac": "1997-06-07",
@@ -12,7 +11,7 @@
             "telCelular": "2717095711",
             "telFijo": "2717179032",
             "tipo": "Administrador",
-            "status": "1"
+            "status": 1
     	},
     	{
             "id": 2,
@@ -29,7 +28,7 @@
             "status": 1
     	},
     	{
-    		"id": 3,
+    	    "id": 3,
             "nombreUsuario": "UsuarioMedico1",
             "contrasena": "Abc123",
             "nombre": "Ana Beatriz",
@@ -43,7 +42,7 @@
             "status": 1
     	},
     	{
-    		"id": 4,
+    	    "id": 4,
             "nombreUsuario": "UsuarioMedico2",
             "contrasena": "Abc123",
             "nombre": "Pedro de Jesus",
@@ -70,5 +69,4 @@
             "tipo": "Medico",
             "status": 1
     	}
-    ]
-}
+]

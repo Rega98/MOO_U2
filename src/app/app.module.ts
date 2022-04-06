@@ -121,6 +121,7 @@ import { RegistraConsultaComponent } from './components/registra-consulta/regist
 import { ReciboComponent } from './components/recibo/recibo.component';
 import { ListaPacientesComponent } from './components/lista-pacientes/lista-pacientes.component';
 import { HistorialPacienteComponent } from './components/historial-paciente/historial-paciente.component';
+import { TestComponent } from './components/test/test.component';
 //import { AccessComponent } from './components/access/access.component';
 
 @NgModule({
@@ -235,6 +236,7 @@ import { HistorialPacienteComponent } from './components/historial-paciente/hist
         ReciboComponent,
         ListaPacientesComponent,
         HistorialPacienteComponent,
+        TestComponent,
     ],
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},

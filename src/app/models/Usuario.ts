@@ -1,4 +1,9 @@
+import * as usuarios from "../../assets/demo/hospital/usuarios.json";
+import { IUsuario } from "../interfaces/IUsuario";
 export class Usuario {
+    //No es parte de la implementacion
+    static listaUsuarios = JSON.stringify(usuarios);
+
     protected _id:number;
     protected _nombreUsuario:string;
     protected _contrasena:string;
@@ -27,8 +32,9 @@ export class Usuario {
         this._status = 0;
     }
     
-    public list():any {
+    public list():Usuario[] {
         //Retorna un json con la lista de usuarios
+        return <Usuario[]> JSON.parse(Usuario.listaUsuarios);
     }
 
     public search():boolean {
