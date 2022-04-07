@@ -1,9 +1,7 @@
-import * as usuarios from "../../assets/demo/hospital/usuarios.json";
+import { Data } from "./Data";
 import { IUsuario } from "../interfaces/IUsuario";
-export class Usuario {
-    //No es parte de la implementacion
-    static listaUsuarios = JSON.stringify(usuarios);
 
+export class Usuario {
     protected _id:number;
     protected _nombreUsuario:string;
     protected _contrasena:string;
@@ -32,38 +30,124 @@ export class Usuario {
         this._status = 0;
     }
     
-    public list():Usuario[] {
+    public list():IUsuario[] {
         //Retorna un json con la lista de usuarios
-        return <Usuario[]> JSON.parse(Usuario.listaUsuarios);
+       return Data.listaUsuarios;
     }
 
     public search():boolean {
-        let b = false;
         //Busca en la lista de usuarios el usuario con el id del objeto
+        let b = false;
+        let arr:IUsuario[] = this.list();
+        for(let usuario of arr){
+            if(this._id == usuario.id) {
+                this._id = usuario.id;
+                this._nombreUsuario = usuario.nombreUsuario;
+                this._contrasena = usuario.contrasena;
+                this._nombre = usuario.nombre;
+                this._apellidoP = usuario.apellidoP;
+                this._apellidoM = usuario.apellidoM;
+                this._fechaNac = usuario.fechaNac;
+                this._email = usuario.email;
+                this._telCelular = usuario.telCelular;
+                this._telFijo = usuario.telFijo;
+                this._tipo = usuario.tipo;
+                this._status = usuario.status;
+                b = true;
+                break;
+            }
+        }
         return b;
     }
 
     public save():boolean {
-        let b = false;
         //Guarda en la lista de usuarios el nuevo usuario
+        let b = false;
+        let arrUsuarios:IUsuario[] = this.list();
+        this._id = arrUsuarios[arrUsuarios.length-1].id + 1;
+        //console.log(Data.listaUsuarios);
+        let newUsr:IUsuario = {
+            //id: arrUsuarios[arrUsuarios.length-1].id + 1,
+            id: this._id,
+            nombreUsuario: this._nombreUsuario,
+            contrasena: this._contrasena,
+            nombre:this._nombre,
+            apellidoP:this._apellidoP,
+            apellidoM:this._apellidoM,
+            fechaNac:this._fechaNac,
+            email:this._email,
+            telCelular:this._telCelular,
+            telFijo:this._telFijo,
+            tipo:this._tipo,
+            status:this._status
+        };
+        if(arrUsuarios.push(newUsr) != 0){
+            b = true;
+            //console.log(Data.listaUsuarios);
+        }
         return b;
     }
 
     public update():boolean {
         let b = false;
         //Actualiza la info del usuario
+        let arr:IUsuario[] = this.list();
+        for(let usuario of arr){
+            if(this._id == usuario.id) {
+                usuario.nombreUsuario = this._nombreUsuario;
+                usuario.contrasena = this._contrasena;
+                usuario.nombre = this._nombre;
+                usuario.apellidoP = this._apellidoP;
+                usuario.apellidoM = this._apellidoM;
+                usuario.fechaNac = this._fechaNac;
+                usuario.email = this._email;
+                usuario.telCelular = this._telCelular;
+                usuario.telFijo = this._telFijo;
+                usuario.tipo = this._tipo;
+                usuario.status = this._status;
+                b = true;
+                break;
+            }
+        }
         return b;
     }
 
     public delete():boolean {
         let b = false;
         //Elimina al usuario de la lista
+        let newArr:IUsuario[] = [];
+        for(let obj of this.list()){
+            if(obj.id != this._id){
+                newArr.push(obj);
+            }
+        }
+        Data.listaUsuarios = newArr;
+        //console.log(this.list());
         return b;
     }
 
     public validarUsuario():boolean {
         let b = false;
         //Revisa si existe un usuario con este nombre y contraseña
+        let arr:IUsuario[] = this.list();
+        for(let usuario of arr){
+            if(this._nombreUsuario == usuario.nombreUsuario && this._contrasena == usuario.contrasena) {
+                this._id = usuario.id;
+                this._nombreUsuario = usuario.nombreUsuario;
+                this._contrasena = usuario.contrasena;
+                this._nombre = usuario.nombre;
+                this._apellidoP = usuario.apellidoP;
+                this._apellidoM = usuario.apellidoM;
+                this._fechaNac = usuario.fechaNac;
+                this._email = usuario.email;
+                this._telCelular = usuario.telCelular;
+                this._telFijo = usuario.telFijo;
+                this._tipo = usuario.tipo;
+                this._status = usuario.status;
+                b = true;
+                break;
+            }
+        }
         return b;
     }
     
