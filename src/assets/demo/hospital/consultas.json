@@ -1,46 +1,44 @@
-{
-    "data": [
-    	{
-            "id": 1,
-    		"fecha": "2022-04-08",
-			"sintomas": "Dolor abdominal, Fiebre",
-            "peso": "75 kg",
-            "temperatura": "38 °C",
-            "frecuanciaCardiaca": "123",
-            "estatura": "167 cm",
-            "descripcionAnalisisMedico": "Se realizó presión sobre el abdomen para identificar el origen del dolor",
-            "diagnostico": "Infección en el intestino",
-            "tratamiento": "Biometacin 25mg 1 tableta cada 8 hrs, Ciproflox 50mg 1 tableta cada 12 hrs, Evitar comer carnes rojas",
-            "paciente": 1,
-            "medico": 4
-    	},
-        {
-            "id": 2,
-            "fecha": "2022-03-08",
-            "sintomas": "El paciente llego con un dolor e irritación en la garganta junto con fiebre",
-            "peso": "80 kg",
-            "temperatura": "39 °C",
-            "frecuanciaCardiaca": "115",
-            "estatura": "180 cm",
-            "descripcionAnalisisMedico": "Se inspeccionó la garganta del paciente en busca de inflamación",
-            "diagnostico": "Infección bacteriana en la garganta",
-            "tratamiento": "Ciproflox 50mg 1 tableta cada 12 hrs",
-            "paciente": 2,
-            "medico": 5
-        },
-        {
-            "id": 3,
-            "fecha": "2022-03-07",
-            "sintomas": "Fiebre alta, Dolor en articulaciones, Escurrimiento nasal",
-            "peso": "72 kg",
-            "temperatura": "39 °C",
-            "frecuanciaCardiaca": "110",
-            "estatura": "170 cm",
-            "descripcionAnalisisMedico": "Se aplicó una prueva para Covid",
-            "diagnostico": "Covid",
-            "tratamiento": "Evitar contacto con otros, Beber muchos liquidos",
-            "paciente": 3,
-            "medico": 3
-        }
-    ]
-}
+[
+    {
+        "id": 1,
+    	"fecha": "2022-04-08",
+		"sintomas": "Dolor abdominal, Fiebre",
+        "peso": "75 kg",
+        "temperatura": "38 °C",
+        "frecuanciaCardiaca": "123",
+        "estatura": "167 cm",
+        "descripcionAnalisisMedico": "Se realizó presión sobre el abdomen para identificar el origen del dolor",
+        "diagnostico": "Infección en el intestino",
+        "tratamiento": "Biometacin 25mg 1 tableta cada 8 hrs, Ciproflox 50mg 1 tableta cada 12 hrs, Evitar comer carnes rojas",
+        "paciente": 1,
+        "medico": 4
+	},
+    {
+        "id": 2,
+        "fecha": "2022-03-08",
+        "sintomas": "El paciente llego con un dolor e irritación en la garganta junto con fiebre",
+        "peso": "80 kg",
+        "temperatura": "39 °C",
+        "frecuanciaCardiaca": "115",
+        "estatura": "180 cm",
+        "descripcionAnalisisMedico": "Se inspeccionó la garganta del paciente en busca de inflamación",
+        "diagnostico": "Infección bacteriana en la garganta",
+        "tratamiento": "Ciproflox 50mg 1 tableta cada 12 hrs",
+        "paciente": 2,
+        "medico": 5
+    },
+    {
+        "id": 3,
+        "fecha": "2022-03-07",
+        "sintomas": "Fiebre alta, Dolor en articulaciones, Escurrimiento nasal",
+        "peso": "72 kg",
+        "temperatura": "39 °C",
+        "frecuanciaCardiaca": "110",
+        "estatura": "170 cm",
+        "descripcionAnalisisMedico": "Se aplicó una prueva para Covid",
+        "diagnostico": "Covid",
+        "tratamiento": "Evitar contacto con otros, Beber muchos liquidos",
+        "paciente": 3,
+        "medico": 3
+    }
+]
