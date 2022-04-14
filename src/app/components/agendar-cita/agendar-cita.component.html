@@ -1,10 +1,6 @@
-<h4 class="ml-5 mt-5">Agregar Cita</h4>
+<h4>Agregar Cita</h4>
 
-<br>
-<br>
-<br>
-
-<div class="card ml-5 mr-5">
+<div class="card">
     <div class="p-fluid p-formgrid grid">
         <div class="field col-12 md:col-6">
             <label for="icon">Fecha</label>
@@ -38,10 +34,9 @@
             <p-dropdown [options]="dropdownItems" optionLabel="nombre" [(ngModel)]="selectedMeed"></p-dropdown>
         </div>
         <div class="field col-12 md:col-3">
-            <button pButton pRipple type="button" label="Cancelar" class="p-button-danger mt-4"></button>
+            <button pButton pRipple type="button" label="Cancelar" (click)="cancelarCita()" class="p-button-danger mt-4"></button>
         </div>
         <div class="field col-12 md:col-3">
-            
             <button pButton pRipple type="button" label="Agregar" class="p-button-success mt-4"></button>
         </div>
     </div>

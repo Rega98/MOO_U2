@@ -104,7 +104,6 @@ import { CustomerService } from './service/customerservice';
 import { EventService } from './service/eventservice';
 import { IconService } from './service/iconservice';
 import { NodeService } from './service/nodeservice';
-//import { PhotoService } from './service/photoservice';
 import { ProductService } from './service/productservice';
 import { MenuService } from './service/app.menu.service';
 import { ConfigService } from './service/app.config.service';
@@ -122,7 +121,6 @@ import { ReciboComponent } from './components/recibo/recibo.component';
 import { ListaPacientesComponent } from './components/lista-pacientes/lista-pacientes.component';
 import { HistorialPacienteComponent } from './components/historial-paciente/historial-paciente.component';
 import { TestComponent } from './components/test/test.component';
-//import { AccessComponent } from './components/access/access.component';
 
 @NgModule({
     imports: [

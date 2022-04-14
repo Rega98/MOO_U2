@@ -7,6 +7,7 @@ import { Sesion } from '../../models/Sesion';
 import { Administracion } from '../../models/Administracion';
 import { Medico } from '../../models/Medico';
 import { Recepcionista } from '../../models/Recepcionista';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -39,7 +40,8 @@ export class LoginComponent implements OnInit, OnDestroy {
   
   subscription: Subscription;
 
-  constructor(public configService: ConfigService){ }
+  constructor(public configService: ConfigService,
+    private rutas:Router){ }
 
   ngOnInit(): void {
     this.config = this.configService.config;
@@ -102,6 +104,6 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   redireccionaMenu(){
     //Pendiente el enrutamiento de los componentes
-    //this.router.navigate(['']);
+    this.rutas.navigate(['home']);
   }
 }

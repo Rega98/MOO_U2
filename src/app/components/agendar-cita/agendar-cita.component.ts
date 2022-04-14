@@ -4,6 +4,7 @@ import { Medico } from '../../models/Medico';
 import { Cita } from '../../models/Cita';
 import { Sesion } from 'src/app/models/Sesion';
 import { Usuario } from 'src/app/models/Usuario';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-agendar-cita',
@@ -21,7 +22,7 @@ export class AgendarCitaComponent implements OnInit {
   date4:Date;
   dropdownItems:any;
   selectedMeed:any;
-  constructor() { }
+  constructor(private rutas: Router) { }
 
   ngOnInit(): void {
     if(Sesion.getInstancia(new Usuario()).getUsuario().tipo == 'Recepcionista') {
@@ -73,7 +74,11 @@ export class AgendarCitaComponent implements OnInit {
 
   redireccionaMenu():void {
     //Pendiente el enrutamiento de los componentes
-    //this.router.navigate(['']);
+    this.rutas.navigate(['home']);
+  }
+
+  cancelarCita(){
+    this.rutas.navigate(['home/pages/citas']);
   }
 
 }

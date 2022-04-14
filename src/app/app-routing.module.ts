@@ -8,23 +8,42 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
 import { VerCitasComponent } from './components/ver-citas/ver-citas.component';
 import { AgendarCitaComponent } from './components/agendar-cita/agendar-cita.component';
 import { TestComponent } from './components/test/test.component';
+import { BajaPersonalComponent } from './components/baja-personal/baja-personal.component';
+import { CancelarCitaComponent } from './components/cancelar-cita/cancelar-cita.component';
+import { HistorialPacienteComponent } from './components/historial-paciente/historial-paciente.component';
+import { ListaPacientesComponent } from './components/lista-pacientes/lista-pacientes.component';
+import { ListaPersonalComponent } from './components/lista-personal/lista-personal.component';
+import { ReciboComponent } from './components/recibo/recibo.component';
+import { RegistraConsultaComponent } from './components/registra-consulta/registra-consulta.component';
+import { RegistrarUsuarioComponent } from './components/registrar-usuario/registrar-usuario.component';
+
 @NgModule({
     imports: [
         RouterModule.forRoot([
             {
-                path: '', component: AppMainComponent,
+                path: '', component: LoginComponent,
+            },
+            {
+                path: 'home', component: AppMainComponent,
                 children: [
-                    {path: '', component: DashboardComponent}
+                    { path: '', component: DashboardComponent },
+                    { path: 'pages/citas', component: VerCitasComponent },
+                    { path: 'pages/agregarcita', component: AgendarCitaComponent },
+                    { path: 'pages/test', component: TestComponent },
+                    { path: 'pages/bajaPersonal', component: BajaPersonalComponent },
+                    { path: 'pages/cancelarCita', component: CancelarCitaComponent },
+                    { path: 'pages/historialPaciente', component: HistorialPacienteComponent },
+                    { path: 'pages/listaPacientes', component: ListaPacientesComponent },
+                    { path: 'pages/listaPersonal', component: ListaPersonalComponent },
+                    { path: 'pages/recibo', component: ReciboComponent },
+                    { path: 'pages/registraConsulta', component: RegistraConsultaComponent },
+                    { path: 'pages/registraUsuario', component: RegistrarUsuarioComponent },
                 ],
             },
-            {path:'pages/login', component: LoginComponent},
-            {path:'pages/error', component: ErrorComponent},
-            {path:'pages/notfound', component: NotfoundComponent},
-            {path:'pages/citas', component: VerCitasComponent},
-            {path:'pages/agregarcita', component: AgendarCitaComponent},
-            {path:'pages/test', component: TestComponent},
-            {path: '**', redirectTo: 'pages/notfound'},
-        ], {scrollPositionRestoration: 'enabled', anchorScrolling:'enabled'})
+            { path: 'pages/error', component: ErrorComponent },
+            { path: 'pages/notfound', component: NotfoundComponent },
+            { path: '**', redirectTo: 'pages/notfound' },
+        ], { scrollPositionRestoration: 'enabled', anchorScrolling: 'enabled' })
     ],
     exports: [RouterModule]
 })

@@ -3,7 +3,8 @@ import { Cita } from 'src/app/models/Cita';
 import { Medico } from 'src/app/models/Medico';
 import { Sesion } from 'src/app/models/Sesion';
 import { Usuario } from 'src/app/models/Usuario';
-
+import {Router} from '@angular/router';
+import 'src/assets/demo/hospital/citas.json'
 
 
 @Component({
@@ -15,7 +16,7 @@ import { Usuario } from 'src/app/models/Usuario';
 export class VerCitasComponent implements OnInit {
   citas: any;
   products: any[];
-  constructor() { }
+  constructor(private rutas: Router) { }
 
   ngOnInit(): void {
     if (Sesion.getInstancia(new Usuario()).getUsuario().tipo == 'Recepcionista') {
@@ -59,6 +60,8 @@ export class VerCitasComponent implements OnInit {
   }
 
   Agregar(){
+
+    this.rutas.navigate(['home/pages/agregarcita']);
 
     alert('Por el momento esta accion no esta disponible')
 
