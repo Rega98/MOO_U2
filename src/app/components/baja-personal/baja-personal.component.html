@@ -1,1 +1,52 @@
-<p>baja-personal works!</p>
+<h4>Baja de Personal</h4>
+
+<p-toast></p-toast>
+
+<div class="card">
+    <p-fieldset legend="{{header}}">
+        <div class="p-fluid p-formgrid grid">
+            <div class="field col-12 md:col-12 text-center">
+                <h6 style="color: red;">¡Atención! Estas a punto de dar de baja al siguiente miembro del personal</h6>
+            </div>
+            <div class="field col-4 md:col-4 text-center">
+                <strong>Nombre:</strong>
+                <p>Adolfo</p>
+            </div>
+            <div class="field col-4 md:col-4 text-center">
+                <strong>Apellido Paterno:</strong>
+                <p>Meza</p>
+            </div>
+            <div class="field col-4 md:col-4 text-center">
+                <strong>Apellido Materno:</strong>
+                <p>Romero</p>
+            </div>
+            <div class="field col-4 md:col-4 text-center">
+                <strong>Correo Electronico:</strong>
+                <p>adolfo@hotmail.com</p>
+            </div>
+            <div class="field col-4 md:col-4 text-center">
+                <strong>Telefono Fijo:</strong>
+                <p>2717095711</p>
+            </div>
+            <div class="field col-4 md:col-4 text-center">
+                <strong>Telefono Celular:</strong>
+                <p>2717095711</p>
+            </div>
+            <br>
+            <div class="field col-12 md:col-12 text-center">
+                <h6 style="color: red;"> Esta acción es irreversible</h6>
+                <p style="color: black;">Si está seguro presione aceptar</p>
+            </div>
+
+            <div class="field col-6 md:col-6">
+                <button pButton pRipple type="button" label="Aceptar" (click)="darBaja(0)" class="p-button-success mt-4"></button>
+            </div>
+            <div class="field col-6 md:col-6">
+                <button pButton pRipple type="button" label="Cancelar" (click)="cancelar()" class="p-button-danger mt-4"></button>
+            </div>
+        </div>
+       
+
+    </p-fieldset>
+
+</div>

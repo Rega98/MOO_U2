@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Administracion } from '../../models/Administracion';
 import { Sesion } from '../../models/Sesion';
 import { Usuario } from '../../models/Usuario';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lista-personal',
@@ -10,8 +11,8 @@ import { Usuario } from '../../models/Usuario';
 })
 export class ListaPersonalComponent implements OnInit {
   user: Administracion;
-  userList:any
-  constructor() { }
+  userList:any;
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
    this.user = Sesion.getInstancia(new Usuario()).getUsuario() as Administracion;
@@ -21,6 +22,8 @@ export class ListaPersonalComponent implements OnInit {
     alert("Error, intenta acceder a una funcionalidad exclusiva para la Administracion");
     this.redireccionaMenu();
    }
+   this.userList = this.user.list();
+   console.log(this.userList);
   }
 
   redireccionaMenu(){
@@ -28,9 +31,12 @@ export class ListaPersonalComponent implements OnInit {
     //this.router.navigate(['']);
   }
 
-  irABajaPersonal(){
+  User:any;
+
+  irABajaPersonal(user){
     //Pendiente el enrutamiento de los componentes
-    //this.router.navigate(['']);
+    this.User = user.id;
+    this.router.navigate(['home/pages/bajaPersonal/' + this.User]);
   }
 
 }
