@@ -25,9 +25,10 @@ export class AgendarCitaComponent implements OnInit {
 
   ngOnInit(): void {
     if(Sesion.getInstancia(new Usuario()).getUsuario().tipo == 'Recepcionista') {
+      let medico = new Medico();
       let recepcionista:Recepcionista = Sesion.getInstancia(new Usuario()).getUsuario() as Recepcionista;
       this.cita = recepcionista.getNuevaCita();
-      this.listaMedicos = this.cita.medico.listMedicos();
+      this.listaMedicos = medico.listMedicos();
     } else if (Sesion.getInstancia(new Usuario()).getUsuario().tipo == 'Medico') {
       let medico:Medico = Sesion.getInstancia(new Usuario()).getUsuario() as Medico;
       this.cita = medico.getNuevaCita();

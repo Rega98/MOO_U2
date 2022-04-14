@@ -8,5 +8,5 @@ export interface ICita {
     horaAtencon: string,
     observaciones: string,
     status: string,
-    medicoAdignado: number
+    medicoAsignado: number
 };

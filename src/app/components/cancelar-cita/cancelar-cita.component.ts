@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Cita } from 'src/app/models/Cita';
+import { Medico } from 'src/app/models/Medico';
 
 @Component({
   selector: 'app-cancelar-cita',
@@ -14,8 +15,10 @@ export class CancelarCitaComponent implements OnInit {
     let idCita:number = 0//this.activatedRoute.snapshot.params.id;
     this.cita.id = idCita;
     if(this.cita.search()) {
-      if(this.cita.medico.search()) {
-        if(this.cita.medico.searchInfoMedico()) {
+      let medico = new Medico();
+      medico.id = this.cita.medico;
+      if(medico.search()) {
+        if(medico.searchInfoMedico()) {
           //Algo hay que hacer aquí
         } else {
           alert("Algunos datos del médico no se pudieron cargar");
