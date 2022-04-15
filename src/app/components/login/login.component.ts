@@ -8,6 +8,8 @@ import { Administracion } from '../../models/Administracion';
 import { Medico } from '../../models/Medico';
 import { Recepcionista } from '../../models/Recepcionista';
 import { Router } from '@angular/router';
+import { ISesionStarter } from 'src/app/interfaces/ISesionStarter';
+import { SesionStarterProxy } from 'src/app/models/SesionStarterProxy';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -60,6 +62,20 @@ export class LoginComponent implements OnInit, OnDestroy {
     let usr:Usuario = new Usuario();
     usr.nombreUsuario = ''; //Se espera utilizar los campos de la vista
     usr.contrasena = ''; //Se espera utilizar los campos de la vista
+    let sesionStarter:ISesionStarter = new SesionStarterProxy();
+    if(sesionStarter.iniciarSesion(usr)){
+      this.redireccionaMenu();
+    } else {
+      alert("No se pudo inicar Sesion");
+    }
+  }
+
+  /*
+  iniciarSesion(): void {
+    let usr:Usuario = new Usuario();
+    usr.nombreUsuario = ''; //Se espera utilizar los campos de la vista
+    usr.contrasena = ''; //Se espera utilizar los campos de la vista
+    
     if(usr.validarUsuario){
       switch(usr.tipo){
         case 'Administracion':{
@@ -101,7 +117,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   guardarSesion(usr:Usuario) {
     Sesion.getInstancia(usr);
   }
-
+  */
   redireccionaMenu(){
     //Pendiente el enrutamiento de los componentes
     this.rutas.navigate(['home']);

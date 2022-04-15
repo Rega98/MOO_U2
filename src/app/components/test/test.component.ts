@@ -9,6 +9,7 @@ import { Cita } from 'src/app/models/Cita';
 import { ICita } from 'src/app/interfaces/ICita';
 import { Consulta } from 'src/app/models/Consulta';
 import { IConsulta } from 'src/app/interfaces/IConsulta';
+import { RegistrarConsultaFacade } from 'src/app/models/RegistrarConsultaFacade';
 
 @Component({
   selector: 'app-test',
@@ -20,57 +21,38 @@ export class TestComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    let paciente = new Paciente();
-    paciente.id = 3;
-    let historial:IConsulta[] = paciente.listHistorial();
-    console.log(historial);
-
-    //List Test
-    //let arreglo:IConsulta[] = consulta.list();
-    //for(let obj of arreglo){
-    //  console.log(obj);
-    //}
-    //console.log(arreglo);
-
-    //Search Test
-    //consulta.id = 3;
-    //consulta.search();
-    //console.log(consulta);
-
-    //Save Test
-    //console.log(paciente.list());
-    //consulta.save();
-    //console.log(consulta.list());
-
-    //Update Test
-    //paciente.save();
-    //console.log(paciente.list());
-    //consulta.fecha = 'nueva fecha';
-    //consulta.sintomas = 'nuevo Paciente';
-    //consulta.peso = 10;
-    //consulta.temperatura = 10;
-    //consulta.frecuenciaCardiaca = 10;
-    //consulta.estatura = 10;
-    //consulta.descripcionAnalisisMedico = 'observaciones';
-    //consulta.diagnostico = 'observaciones';
-    //consulta.tratamiento = 'Pendiente';
-    //consulta.paciente.id = 1;
-    //consulta.medico.id = 3;
-    //consulta.update();
-    //console.log(consulta.list());
-
-    //Delete Test
-    //paciente.save();
-    //consulta.delete();
-    //console.log(consulta.list());
-    //console.log(Data.listaInfoMedicos);
+    let cita:Cita = new Cita();
+    cita.id = 1;
+    cita.search();
+    let medico = new Medico();
+    medico.id = cita.medico;
+    let nuevaConsulta:Consulta = new Medico().nuevaConsulta();
+    nuevaConsulta.fecha = 'hoy';
+    nuevaConsulta.sintomas = 'muchos sintomas';
+    nuevaConsulta.peso = 1.0;
+    nuevaConsulta.temperatura = 2.0;
+    nuevaConsulta.frecuenciaCardiaca = 3.0;
+    nuevaConsulta.estatura = 4.0;
+    nuevaConsulta.descripcionAnalisisMedico = 'analisis';
+    nuevaConsulta.diagnostico = 'diagnostico';
+    nuevaConsulta.tratamiento = 'tratamiento';
+    //nuevaConsulta.paciente.id = 1;
+    nuevaConsulta.paciente.nombre = "paciente";
+    nuevaConsulta.paciente.apellidoP = "apellido P";
+    nuevaConsulta.paciente.apellidoM = "apellido M";
+    nuevaConsulta.paciente.sexo = "Masculino";
+    nuevaConsulta.paciente.fechaNac = "hoy";
+    nuevaConsulta.paciente.tipoSangre = "A+";
+    nuevaConsulta.paciente.alergias = "Ninguna";
+    nuevaConsulta.paciente.telContacto = "telefono";
+    nuevaConsulta.paciente.email = "email";
     
-    //Login test
-    //usuario.nombreUsuario = "UsuarioAdmin";
-    //usuario.contrasena = "Abc123";
-    //if(usuario.validarUsuario()){
-    //  console.log(usuario);
-    //}
+    let regConsulta:RegistrarConsultaFacade = new RegistrarConsultaFacade(nuevaConsulta, cita);
+    //regConsulta.registrarConsulta(false);
+    regConsulta.registrarConsulta(true);
+    console.log(Data.listaCitas);
+    console.log(Data.listaConsultas);
+    console.log(Data.listaPacientes);
   }
 
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Cita } from 'src/app/models/Cita';
 import { Consulta } from 'src/app/models/Consulta';
 import { Medico } from 'src/app/models/Medico';
+import { RegistrarConsultaFacade } from 'src/app/models/RegistrarConsultaFacade';
 import { Sesion } from 'src/app/models/Sesion';
 import { Usuario } from 'src/app/models/Usuario';
 
@@ -56,6 +57,12 @@ export class RegistraConsultaComponent implements OnInit {
   }
 
   guardarConsulta(): void {
+    let regConsulta:RegistrarConsultaFacade = new RegistrarConsultaFacade(this.consulta, this.cita);
+    regConsulta.registrarConsulta(this.nuevoPaciente);
+    this.redireccionaMenu();
+  }
+  /*
+  guardarConsulta(): void {
     if(this.nuevoPaciente) {
       if(this.consulta.paciente.save()) {
         if(this.consulta.save()) {
@@ -86,7 +93,7 @@ export class RegistraConsultaComponent implements OnInit {
     }
     this.redireccionaMenu();
   }
-
+  */
   redireccionaMenu(): void{
     //Pendiente el enrutamiento de los componentes
     //this.router.navigate(['']);
