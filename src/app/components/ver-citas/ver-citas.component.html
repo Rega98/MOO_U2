@@ -22,7 +22,7 @@
     <br>
     <br>
 
-    <p-table [value]="products" responsiveLayout="scroll" #tc [globalFilterFields]="['id','fechaRegistro','nombrePaciente','fechaAtencion', 'horaAtencon', 'observaciones', 'status' ,'medico']" >
+    <p-table [value]="citas" responsiveLayout="scroll" #tc [globalFilterFields]="['id','fechaRegistro','nombrePaciente','fechaAtencion', 'horaAtencon', 'observaciones', 'status' ,'medico']" >
         <ng-template pTemplate="header">
             <tr>
                 <th  field="id" >ID</th>
@@ -40,9 +40,9 @@
         <ng-template pTemplate="body" let-product>
             <tr>
                 <td>{{product.id}}</td>
-                <td>{{product.fechaRegistro}}</td>
+                <td>{{product.fechaRegistro | date: 'dd/MM/yy'}}</td>
                 <td>{{product.nombrePaciente}}</td>
-                <td>{{product.fechaAtencion}}</td>
+                <td>{{product.fechaAtencion | date: 'dd/MM/yy'}}</td>
                 <td>{{product.horaAtencon}}</td>
                 <td>{{product.observaciones}}</td>
                 <td>{{product.status}}</td>

@@ -1,1 +1,62 @@
-<p>historial-paciente works!</p>
+<h4>Historial de consultas</h4>
+
+<div class="card">
+
+    <p-toolbar styleClass="p-mb-4">
+        <ng-template pTemplate="left">
+            <ng-container>
+                <button pButton pRipple type="button" label="Regresar" class="p-button-success p-mr-2"></button>
+            </ng-container>
+        </ng-template>
+        <ng-template pTemplate="right">
+            <ng-container>
+                <div class="p-input-icon-left">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" (input)="tp.filterGlobal($event.target.value, 'contains')"
+                        placeholder="Buscar..." />
+                </div>
+            </ng-container>
+        </ng-template>
+    </p-toolbar>
+
+    <br>
+    <br>
+    <br>
+    <!-- -->
+
+    <p-table #tp [value]="consultas" responsiveLayout="scroll"
+        [globalFilterFields]="['fecha','sintomas','peso','temperatura','frecuanciaCardiaca','estatura','descripcionAnalisisMedico','diagnostico','tratamiento','paciente','medico']">
+        <ng-template pTemplate="header">
+            <tr>
+                <th field="id">id</th>
+                <th field="fecha">Fecha</th>
+                <th field="sintomas">Sintomas</th>
+                <th field="peso">Peso</th>
+                <th field="temperatura">Temperatura</th>
+                <th field="frecuanciaCardiaca">Frecuancia Cardiaca</th>
+                <th field="estatura">Estatura</th>
+                <th field="descripcionAnalisisMedico">Descripcion Analisis</th>
+                <th field="diagnostico"> Diagnostico </th>
+                <th field="tratamiento"> Tratamiento</th>
+                <th field="paciente">Paciente</th>
+                <th field="medico">Medico</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-paciente>
+            <tr>
+                <td>{{paciente.id}}</td>
+                <td>{{paciente.fecha| date: 'dd/MM/yy'}}</td>
+                <td>{{paciente.sintomas}}</td>
+                <td>{{paciente.peso}}</td>
+                <td>{{paciente.temperatura}}</td>
+                <td>{{paciente.frecuanciaCardiaca}}</td>
+                <td>{{paciente.estatura}}</td>
+                <td>{{paciente.descripcionAnalisisMedico}}</td>
+                <td>{{paciente.diagnostico}}</td>
+                <td>{{paciente.tratamiento}}</td>
+                <td>{{paciente.paciente}}</td>
+                <td>{{paciente.medico}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

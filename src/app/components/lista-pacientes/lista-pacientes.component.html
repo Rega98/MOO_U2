@@ -1,1 +1,57 @@
-<p>lista-pacientes works!</p>
+<h4>Pacientes</h4>
+
+<div class="card">
+
+    <p-toolbar styleClass="p-mb-4">
+        <ng-template pTemplate="left">
+            <ng-container>
+                <button pButton pRipple type="button" label="Registrar Paciente" class="p-button-success p-mr-2"></button>
+            </ng-container>
+        </ng-template>
+        <ng-template  pTemplate="right">
+            <ng-container>
+                <div class="p-input-icon-left">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" (input)="tp.filterGlobal($event.target.value, 'contains')" placeholder="Buscar..." />
+                </div>
+            </ng-container>
+        </ng-template>
+    </p-toolbar>
+
+    <br>
+    <br>
+    <br>
+    <!-- -->
+
+    <p-table #tp [value]="listaPacientes" responsiveLayout="scroll" [globalFilterFields]="['id','nombre','apellidoP', 'apellidoM', 'fechaNac', 'sexo', 'tipoSangre', 'telContacto']">
+        <ng-template pTemplate="header">
+            <tr>
+                <th  field="id" >ID</th>
+                <th  field="nombre">Nombre</th>
+                <th  field="apellidoP">Apellido Paterno</th>
+                <th  field="apellidoM">Apellido Paterno</th>
+                <th  field="fechaNac">Fecha de Nacimiento</th>
+                <th  field="sexo">Sexo</th>
+                <th  field="tipoSangre">Tipo Sanguineo</th>
+                <th  field="telContacto">Telefono de contacto</th>
+                <th>Historial</th>
+                <th>Baja</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-user>
+            <tr>
+                <td>{{user.id}}</td>
+                <td>{{user.nombre}}</td>
+                <td>{{user.apellidoP}}</td>
+                <td>{{user.apellidoM}}</td>
+                <td>{{user.fechaNac | date: 'dd/MM/yy'}}</td>
+                <td>{{user.sexo}}</td>
+                <td>{{user.tipoSangre}}</td>
+                <td>{{user.telContacto}}</td>
+                <td><button pButton pRipple icon="pi pi-search" class="p-button-rounded p-button-success"></button></td>
+                <td><button pButton pRipple icon="pi pi-info-circle" class="p-button-rounded p-button-danger"></button></td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+

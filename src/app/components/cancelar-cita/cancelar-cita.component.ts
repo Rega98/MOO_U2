@@ -1,17 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { Cita } from 'src/app/models/Cita';
 import { Medico } from 'src/app/models/Medico';
+import {MessageService} from 'primeng/api';
+import { PrimeNGConfig } from 'primeng/api';
 
 @Component({
   selector: 'app-cancelar-cita',
   templateUrl: './cancelar-cita.component.html',
-  styleUrls: ['./cancelar-cita.component.scss']
+  styleUrls: ['./cancelar-cita.component.scss'],
+  providers: [MessageService]
 })
 export class CancelarCitaComponent implements OnInit {
   cita:Cita = new Cita();
-  constructor() { }
+  constructor(private messageService: MessageService, private primengConfig: PrimeNGConfig) { }
 
   ngOnInit(): void {
+    this.primengConfig.ripple = true;
     let idCita:number = 0//this.activatedRoute.snapshot.params.id;
     this.cita.id = idCita;
     if(this.cita.search()) {

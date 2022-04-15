@@ -15,7 +15,7 @@ import 'src/assets/demo/hospital/citas.json'
 
 export class VerCitasComponent implements OnInit {
   citas: any;
-  products: any[];
+  citaCancel:any;
   constructor(private rutas: Router) { }
 
   ngOnInit(): void {
@@ -29,34 +29,14 @@ export class VerCitasComponent implements OnInit {
       alert("No se reconoce el tipo de Usuario");
     }
 
-    this.products =
-      [
-        {
-          id: '21232',
-          fechaRegistro: '03/04/22',
-          nombrePaciente: 'Adolfo Meza',
-          fechaAtencion: '03/04/22',
-          horaAtencon: '10:00 AM',
-          observaciones: 'Sin obervacione',
-          status: 'Atendido',
-          medico: 'Elda Gomez'
-        },
-        {
-          id: '21233',
-          fechaRegistro: '04/04/22',
-          nombrePaciente: 'Uriel Reyes',
-          fechaAtencion: '04/04/22',
-          horaAtencon: '11:00 AM',
-          observaciones: 'Sin obervacione',
-          status: 'Atendido',
-          medico: 'Elda Gomez'
-        }
-      ]
+    let cita: Cita = new Cita();
+    this.citas = cita.list();
 
   }
 
-  cancel(product){
-    console.log(product);
+  cancel(product){    
+    this.citaCancel = product;
+    this.rutas.navigate(['home/pages/cancelarCita/'+this.citaCancel]);
   }
 
   Agregar(){

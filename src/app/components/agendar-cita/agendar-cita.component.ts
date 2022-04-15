@@ -22,6 +22,11 @@ export class AgendarCitaComponent implements OnInit {
   date4:Date;
   dropdownItems:any;
   selectedMeed:any;
+  formPaciente: boolean;
+  nombre:any;
+  sexo: string;
+  selectedCategory: any;
+  categories: any[] = [{name: 'Masculino', key: 'M'}, {name: 'Femenino', key: 'F'}];
   constructor(private rutas: Router) { }
 
   ngOnInit(): void {
@@ -58,6 +63,8 @@ export class AgendarCitaComponent implements OnInit {
     this.dropdownItems = [
       {nombre:'Elda Gomez'}
     ]
+
+    
   }
 
   asignaMedico(id:number):void {
@@ -80,6 +87,10 @@ export class AgendarCitaComponent implements OnInit {
 
   cancelarCita(){
     this.rutas.navigate(['home/pages/citas']);
+  }
+
+  openRegisterPaciente(){
+    this.formPaciente = true;
   }
 
 }
