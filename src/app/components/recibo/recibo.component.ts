@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Cita } from 'src/app/models/Cita';
+import { Medico } from 'src/app/models/Medico';
 
 @Component({
   selector: 'app-recibo',
@@ -13,8 +14,10 @@ export class ReciboComponent implements OnInit {
   ngOnInit(): void {
     this.cita.id = 0//this.activatedRoute.snapshot.params.id;
     if(this.cita.search()) {
-      if(this.cita.medico.search()) {
-        if(this.cita.medico.searchInfoMedico()) {
+      let medico = new Medico();
+      medico.id = this.cita.medico;
+      if(medico.search()) {
+        if(medico.searchInfoMedico()) {
           //Algo hay que hacer
         } else {
           alert("No se encontró la información del Médico");

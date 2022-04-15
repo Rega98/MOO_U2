@@ -122,6 +122,7 @@ export class Usuario {
             }
         }
         Data.listaUsuarios = newArr;
+        b = true;
         //console.log(this.list());
         return b;
     }
