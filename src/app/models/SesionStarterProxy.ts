@@ -16,7 +16,7 @@ export class SesionStarterProxy implements ISesionStarter {
         let sesion:boolean = false;
         if(usuario.validarUsuario()){
             switch(usuario.tipo){
-                case 'Administracion':{
+                case 'Administrador':{
                     let admin:Administracion = new Administracion();
                     admin.id = usuario.id;
                     if(admin.search()){

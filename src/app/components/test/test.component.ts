@@ -21,6 +21,11 @@ export class TestComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    let usuario:Usuario = new Usuario();
+    usuario.nombreUsuario = "UsuarioAdmin";
+    usuario.contrasena = "Abc123";
+    console.log(usuario.validarUsuario());
+    /*
     let cita:Cita = new Cita();
     cita.id = 1;
     cita.search();
@@ -53,6 +58,7 @@ export class TestComponent implements OnInit {
     console.log(Data.listaCitas);
     console.log(Data.listaConsultas);
     console.log(Data.listaPacientes);
+    */
   }
 
 }

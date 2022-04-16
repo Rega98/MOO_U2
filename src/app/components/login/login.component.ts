@@ -42,10 +42,13 @@ export class LoginComponent implements OnInit, OnDestroy {
   
   subscription: Subscription;
 
+  usr:Usuario;
+
   constructor(public configService: ConfigService,
     private rutas:Router){ }
 
   ngOnInit(): void {
+    this.usr = new Usuario();
     this.config = this.configService.config;
     this.subscription = this.configService.configUpdate$.subscribe(config => {
       this.config = config;
@@ -59,11 +62,12 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   iniciarSesion(): void {
-    let usr:Usuario = new Usuario();
-    usr.nombreUsuario = ''; //Se espera utilizar los campos de la vista
-    usr.contrasena = ''; //Se espera utilizar los campos de la vista
+    //let usr:Usuario = new Usuario();
+    //usr.nombreUsuario = ''; //Se espera utilizar los campos de la vista
+    //usr.contrasena = ''; //Se espera utilizar los campos de la vista
+
     let sesionStarter:ISesionStarter = new SesionStarterProxy();
-    if(sesionStarter.iniciarSesion(usr)){
+    if(sesionStarter.iniciarSesion(this.usr)){
       this.redireccionaMenu();
     } else {
       alert("No se pudo inicar Sesion");
