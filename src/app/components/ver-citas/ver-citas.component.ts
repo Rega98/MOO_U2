@@ -16,7 +16,8 @@ import { Misc } from 'src/app/models/Misc';
 
 export class VerCitasComponent implements OnInit {
   citas: any;
-  citaCancel:any;
+  esMedico:boolean = false;
+  //citaCancel:any;
   constructor(private rutas: Router) { }
 
   ngOnInit(): void {
@@ -31,6 +32,7 @@ export class VerCitasComponent implements OnInit {
           break; 
         }
         case Misc.tipoMedico:{
+          this.esMedico = true;
           let medico: Medico = Sesion.getInstancia(new Usuario()).getUsuario() as Medico;
           this.citas = medico.listCitas();
           break; 
@@ -55,9 +57,18 @@ export class VerCitasComponent implements OnInit {
     */
   }
 
-  cancel(product){    
-    this.citaCancel = product;
-    this.rutas.navigate(['home/pages/cancelarCita/'+this.citaCancel]);
+  estaPendiente(status:string):boolean {
+    if(status == Misc.statusPendiente){
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  cancel(citaId){    
+    //this.citaCancel = product;
+    //this.rutas.navigate(['home/pages/cancelarCita/'+this.citaCancel]);
+    this.rutas.navigate(['home/pages/cancelarCita/'+citaId]);
   }
 
   Agregar(){

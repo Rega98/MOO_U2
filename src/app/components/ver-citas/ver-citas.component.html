@@ -1,7 +1,6 @@
 <h4>Citas</h4>
 
 <div class="card">
-
     <p-toolbar styleClass="p-mb-4">
         <ng-template pTemplate="left">
             <ng-container>
@@ -17,11 +16,7 @@
             </ng-container>
         </ng-template>
     </p-toolbar>
-
-    <br>
-    <br>
-    <br>
-
+    <br><br><br>
     <p-table [value]="citas" responsiveLayout="scroll" #tc [globalFilterFields]="['id','fechaRegistro','nombrePaciente','fechaAtencion', 'horaAtencon', 'observaciones', 'status' ,'medico']" >
         <ng-template pTemplate="header">
             <tr>
@@ -34,7 +29,9 @@
                 <th  field="status">Esatus</th>
                 <th  field="medico">Medico</th>
                 <th>Cancelar</th>
-
+                <ng-template [ngIf]="esMedico">
+                    <th>Atender</th>       
+                </ng-template>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-product>
@@ -47,7 +44,24 @@
                 <td>{{product.observaciones}}</td>
                 <td>{{product.status}}</td>
                 <td>{{product.medico}}</td>
-                <td><button pButton pRipple icon="pi pi-info-circle" class="p-button-rounded p-button-danger" (click)="cancel(product)"></button></td>
+                <td>
+                    <ng-template [ngIf]="estaPendiente(product.status)" [ngIfElse]="other">
+                        <button pButton pRipple icon="pi pi-times" class="p-button-rounded p-button-danger" (click)="cancel(product.id)"></button>
+                    </ng-template>
+                    <ng-template #other>
+                        <button pButton pRipple disabled icon="pi pi-times" class="p-button-rounded p-button-danger"></button>
+                    </ng-template>
+                </td>
+                <ng-template [ngIf]="esMedico">
+                    <td>
+                        <ng-template [ngIf]="estaPendiente(product.status)" [ngIfElse]="otherMedico">
+                            <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success"></button>
+                        </ng-template>
+                        <ng-template #otherMedico>
+                            <button pButton pRipple disabled icon="pi pi-pencil" class="p-button-rounded p-button-success"></button>
+                        </ng-template>
+                    </td>      
+                </ng-template>
             </tr>
         </ng-template>
     </p-table>
