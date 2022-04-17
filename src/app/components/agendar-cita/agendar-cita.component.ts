@@ -5,6 +5,9 @@ import { Cita } from '../../models/Cita';
 import { Sesion } from 'src/app/models/Sesion';
 import { Usuario } from 'src/app/models/Usuario';
 import { Router } from '@angular/router';
+import { IUsuario } from 'src/app/interfaces/IUsuario';
+import { ICita } from 'src/app/interfaces/ICita';
+import { Misc } from 'src/app/models/Misc';
 
 @Component({
   selector: 'app-agendar-cita',
@@ -13,13 +16,16 @@ import { Router } from '@angular/router';
 })
 export class AgendarCitaComponent implements OnInit {
   cita:Cita;
-  listaMedicos:any;
-  date:Date;
+  listaMedicos:IUsuario[];
+  esRecepcionista:boolean = false;
+  fechaRegistro:Date;
+  hora:Date;
+  fechaAtencion:Date;
+
+  /*Esto es del paciente, no se utilizó
   pacintes:any;
   selectedPaciente:any;
-  date2:Date;
-  date3:Date;
-  date4:Date;
+  date:Date;
   dropdownItems:any;
   selectedMeed:any;
   formPaciente: boolean;
@@ -27,21 +33,37 @@ export class AgendarCitaComponent implements OnInit {
   sexo: string;
   selectedCategory: any;
   categories: any[] = [{name: 'Masculino', key: 'M'}, {name: 'Femenino', key: 'F'}];
+  */
+
   constructor(private rutas: Router) { }
 
   ngOnInit(): void {
-    if(Sesion.getInstancia(new Usuario()).getUsuario().tipo == 'Recepcionista') {
-      let medico = new Medico();
-      let recepcionista:Recepcionista = Sesion.getInstancia(new Usuario()).getUsuario() as Recepcionista;
-      this.cita = recepcionista.getNuevaCita();
-      this.listaMedicos = medico.listMedicos();
-    } else if (Sesion.getInstancia(new Usuario()).getUsuario().tipo == 'Medico') {
-      let medico:Medico = Sesion.getInstancia(new Usuario()).getUsuario() as Medico;
-      this.cita = medico.getNuevaCita();
-      this.cita.id = medico.id;
+    if (Sesion.getInstancia(new Usuario()).getUsuario().id == 0) {
+      Sesion.cerrarSesion();
+      this.rutas.navigate(['']);
+    } else {
+      switch(Sesion.getInstancia(new Usuario()).getUsuario().tipo) {
+        case 'Recepcionista':{
+          this.esRecepcionista = true;
+          let medico = new Medico();
+          let recepcionista:Recepcionista = Sesion.getInstancia(new Usuario()).getUsuario() as Recepcionista;
+          this.cita = recepcionista.getNuevaCita();
+          this.listaMedicos = medico.listMedicos();
+          break; 
+        }
+        case 'Medico':{
+          let medico:Medico = Sesion.getInstancia(new Usuario()).getUsuario() as Medico;
+          this.cita = medico.getNuevaCita();
+          this.cita.medico = medico.id;
+          break; 
+        }
+        default:{
+          alert('Debe ser un Usuario del Tipo Medico o Recepcionista para acceder a esta función');
+          this.redireccionaMenu();
+        }
+      }
     }
-
-    this.pacintes = [
+    /*this.pacintes = [
       {
         nombre: 'Adolfo Meza',
         id:'123133'
@@ -62,9 +84,7 @@ export class AgendarCitaComponent implements OnInit {
 
     this.dropdownItems = [
       {nombre:'Elda Gomez'}
-    ]
-
-    
+    ]*/ 
   }
 
   asignaMedico(id:number):void {
@@ -72,6 +92,10 @@ export class AgendarCitaComponent implements OnInit {
   }
 
   registrarCita():void {
+    this.cita.fechaRegistro = Misc.formatearFecha(this.fechaRegistro.getDate(), this.fechaRegistro.getMonth()+1, this.fechaRegistro.getFullYear());
+    this.cita.fechaAtencion = Misc.formatearFecha(this.fechaAtencion.getDate(), this.fechaAtencion.getMonth()+1, this.fechaAtencion.getFullYear());
+    this.cita.horaAtencion = Misc.formatearHora(this.hora.getHours(), this.hora.getMinutes());
+    this.cita.status = 'Pendiente';
     if(this.cita.save()) {
       alert("Se ha guardado la Cita exitosamente");
       this.redireccionaMenu();
@@ -89,8 +113,8 @@ export class AgendarCitaComponent implements OnInit {
     this.rutas.navigate(['home/pages/citas']);
   }
 
-  openRegisterPaciente(){
+  /*openRegisterPaciente(){
     this.formPaciente = true;
-  }
+  }*/
 
 }

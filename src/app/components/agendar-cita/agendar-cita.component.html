@@ -4,46 +4,54 @@
     <div class="p-fluid p-formgrid grid">
         <div class="field col-12 md:col-6">
             <label for="icon">Fecha</label>
-            <p-calendar [(ngModel)]="date" [showIcon]="true" inputId="icon"></p-calendar>
+            <!--<p-calendar [(ngModel)]="date" [showIcon]="true" inputId="icon"></p-calendar>-->
+            <p-calendar [(ngModel)]="fechaRegistro" [showIcon]="true" inputId="icon"></p-calendar>
         </div>
-        <div class="field col-12 md:col-6">
+        <!--<div class="field col-12 md:col-6">
             <label for="timeonly">Hora</label>
             <p-calendar [(ngModel)]="date2" [timeOnly]="true" [hourFormat]="12" inputId="timeonly"></p-calendar>
-        </div>
+        </div>-->
         <div class="field col-12 md:col-3">
-            <label htmlFor="state">Paciente</label>
-            <p-dropdown [options]="pacintes" optionLabel="nombre" [(ngModel)]="selectedPaciente"></p-dropdown>
+            <label htmlFor="state">Nombre Paciente</label>
+            <!--<p-dropdown [options]="pacintes" optionLabel="nombre" [(ngModel)]="selectedPaciente"></p-dropdown>-->
+            <input id="email1" [(ngModel)]="cita.nombrePaciente" type="text" placeholder="Nombre del Paciente" pInputText class="w-full mb-3" style="padding:1rem;">
         </div>
-        <div class="field col-12 md:col-3">
+        <!--<div class="field col-12 md:col-3">
             <button pButton pRipple type="button" label="Registrar Paciente" (click)="openRegisterPaciente()"
                 class="p-button-success mt-4"></button>
-        </div>
+        </div>-->
         <div class="field col-12 md:col-6">
             <label for="icon">Fecha de Atencion</label>
-            <p-calendar [(ngModel)]="date3" [showIcon]="true" inputId="icon"></p-calendar>
+            <!--<p-calendar [(ngModel)]="date3" [showIcon]="true" inputId="icon"></p-calendar>-->
+            <p-calendar [(ngModel)]="fechaAtencion" [showIcon]="true" inputId="icon"></p-calendar>
         </div>
         <div class="field col-12 md:col-6">
             <label for="timeonly">Hora de Atencion</label>
-            <p-calendar [(ngModel)]="date4" [timeOnly]="true" [hourFormat]="12" inputId="timeonly"></p-calendar>
+            <!--<p-calendar [(ngModel)]="date4" [timeOnly]="true" [hourFormat]="12" inputId="timeonly"></p-calendar>-->
+            <p-calendar [(ngModel)]="hora" [timeOnly]="true" [hourFormat]="12" inputId="timeonly"></p-calendar>
         </div>
         <div class="field col-12 md:col-6">
             <label htmlFor="lastname2">Observaciones</label>
-            <textarea rows="1" cols="30" pInputTextarea></textarea>
+            <!--<textarea rows="1" cols="30" pInputTextarea></textarea>-->
+            <textarea [(ngModel)]="cita.observaciones" rows="1" cols="30" pInputTextarea></textarea>
         </div>
-        <div class="field col-12">
+        <div *ngIf="esRecepcionista" class="field col-12">
             <label htmlFor="address">Medico</label>
-            <p-dropdown [options]="dropdownItems" optionLabel="nombre" [(ngModel)]="selectedMeed"></p-dropdown>
+            <p-dropdown [options]="listaMedicos" optionLabel="nombre" optionValue="id" [(ngModel)]="cita.medico"></p-dropdown>
+            <!--<label htmlFor="address">Medico</label>-->
+            <!--<p-dropdown [options]="dropdownItems" optionLabel="nombre" [(ngModel)]="selectedMeed"></p-dropdown>-->
         </div>
         <div class="field col-12 md:col-3">
             <button pButton pRipple type="button" label="Cancelar" (click)="cancelarCita()"
                 class="p-button-danger mt-4"></button>
         </div>
         <div class="field col-12 md:col-3">
-            <button pButton pRipple type="button" label="Agregar" class="p-button-success mt-4"></button>
+            <!--<button pButton pRipple type="button" label="Agregar" class="p-button-success mt-4"></button>-->
+            <button pButton pRipple type="button" label="Agregar" (click)="registrarCita()" class="p-button-success mt-4"></button>
         </div>
     </div>
 </div>
-
+<!-- Del paciente, no se utilizó. Puede sercir para el formulario de Consultas
 <p-dialog [(visible)]="formPaciente" [style]="{width: '80vw'}">
     <ng-template pTemplate="header">
         <h4>Registro de paciente</h4>
@@ -94,3 +102,4 @@
         <button pButton pRipple type="button" label="Agregar" class="p-button-success mt-4"></button>
     </ng-template>
 </p-dialog>
+-->

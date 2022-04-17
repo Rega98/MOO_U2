@@ -19,7 +19,28 @@ export class VerCitasComponent implements OnInit {
   constructor(private rutas: Router) { }
 
   ngOnInit(): void {
-    if (Sesion.getInstancia(new Usuario()).getUsuario().tipo == 'Recepcionista') {
+    if (Sesion.getInstancia(new Usuario()).getUsuario().id == 0) {
+      Sesion.cerrarSesion();
+      this.rutas.navigate(['']);
+    } else {
+      switch(Sesion.getInstancia(new Usuario()).getUsuario().tipo) {
+        case 'Recepcionista':{
+          let cita: Cita = new Cita();
+          this.citas = cita.list();
+          break; 
+        }
+        case 'Medico':{
+          let medico: Medico = Sesion.getInstancia(new Usuario()).getUsuario() as Medico;
+          this.citas = medico.listCitas();
+          break; 
+        }
+        default:{
+          alert('Debe ser un Usuario del Tipo Medico o Recepcionista para acceder a esta función');
+          this.redireccionaMenu();
+        }
+      }
+    }
+    /*if (Sesion.getInstancia(new Usuario()).getUsuario().tipo == 'Recepcionista') {
       let cita: Cita = new Cita();
       this.citas = cita.list();
     } else if (Sesion.getInstancia(new Usuario()).getUsuario().tipo == 'Medico') {
@@ -28,10 +49,9 @@ export class VerCitasComponent implements OnInit {
     } else {
       alert("No se reconoce el tipo de Usuario");
     }
-
     let cita: Cita = new Cita();
     this.citas = cita.list();
-
+    */
   }
 
   cancel(product){    
@@ -43,8 +63,13 @@ export class VerCitasComponent implements OnInit {
 
     this.rutas.navigate(['home/pages/agregarcita']);
 
-    alert('Por el momento esta accion no esta disponible')
+    //alert('Por el momento esta accion no esta disponible');
 
+  }
+
+  redireccionaMenu():void {
+    //Pendiente el enrutamiento de los componentes
+    this.rutas.navigate(['home']);
   }
 
 }
