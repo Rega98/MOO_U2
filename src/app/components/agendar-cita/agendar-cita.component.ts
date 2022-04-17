@@ -43,7 +43,7 @@ export class AgendarCitaComponent implements OnInit {
       this.rutas.navigate(['']);
     } else {
       switch(Sesion.getInstancia(new Usuario()).getUsuario().tipo) {
-        case 'Recepcionista':{
+        case Misc.tipoRecepcionista:{
           this.esRecepcionista = true;
           let medico = new Medico();
           let recepcionista:Recepcionista = Sesion.getInstancia(new Usuario()).getUsuario() as Recepcionista;
@@ -51,7 +51,7 @@ export class AgendarCitaComponent implements OnInit {
           this.listaMedicos = medico.listMedicos();
           break; 
         }
-        case 'Medico':{
+        case Misc.tipoMedico:{
           let medico:Medico = Sesion.getInstancia(new Usuario()).getUsuario() as Medico;
           this.cita = medico.getNuevaCita();
           this.cita.medico = medico.id;
@@ -95,7 +95,7 @@ export class AgendarCitaComponent implements OnInit {
     this.cita.fechaRegistro = Misc.formatearFecha(this.fechaRegistro.getDate(), this.fechaRegistro.getMonth()+1, this.fechaRegistro.getFullYear());
     this.cita.fechaAtencion = Misc.formatearFecha(this.fechaAtencion.getDate(), this.fechaAtencion.getMonth()+1, this.fechaAtencion.getFullYear());
     this.cita.horaAtencion = Misc.formatearHora(this.hora.getHours(), this.hora.getMinutes());
-    this.cita.status = 'Pendiente';
+    this.cita.status = Misc.statusPendiente;
     if(this.cita.save()) {
       alert("Se ha guardado la Cita exitosamente");
       this.redireccionaMenu();

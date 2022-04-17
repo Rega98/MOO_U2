@@ -5,6 +5,7 @@ import { Sesion } from 'src/app/models/Sesion';
 import { Usuario } from 'src/app/models/Usuario';
 import {Router} from '@angular/router';
 import 'src/assets/demo/hospital/citas.json'
+import { Misc } from 'src/app/models/Misc';
 
 
 @Component({
@@ -24,12 +25,12 @@ export class VerCitasComponent implements OnInit {
       this.rutas.navigate(['']);
     } else {
       switch(Sesion.getInstancia(new Usuario()).getUsuario().tipo) {
-        case 'Recepcionista':{
+        case Misc.tipoRecepcionista:{
           let cita: Cita = new Cita();
           this.citas = cita.list();
           break; 
         }
-        case 'Medico':{
+        case Misc.tipoMedico:{
           let medico: Medico = Sesion.getInstancia(new Usuario()).getUsuario() as Medico;
           this.citas = medico.listCitas();
           break; 

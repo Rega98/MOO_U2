@@ -1,5 +1,13 @@
 export class Misc {
     
+    static tipoAdministrador:string = 'Administrador';
+    static tipoRecepcionista:string = 'Recepcionista';
+    static tipoMedico:string = 'Medico'
+
+    static statusPendiente:string = 'Pendiente';
+    static statusAtendida:string = 'Atendida';
+    static statusCancelada:string = 'Cancelada';
+    
     static formatearFecha(dia:number, mes:number, anio:number):string {
         let fecha = '';
         fecha += anio + '-';
