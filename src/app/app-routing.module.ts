@@ -30,7 +30,7 @@ import { RegistrarUsuarioComponent } from './components/registrar-usuario/regist
                     { path: 'pages/citas', component: VerCitasComponent },
                     { path: 'pages/agregarcita', component: AgendarCitaComponent },
                     { path: 'pages/test', component: TestComponent },
-                    { path: 'pages/bajaPersonal/:user', component: BajaPersonalComponent },
+                    { path: 'pages/bajaPersonal/:userId', component: BajaPersonalComponent },
                     { path: 'pages/cancelarCita/:citaId', component: CancelarCitaComponent },
                     { path: 'pages/historialPaciente', component: HistorialPacienteComponent },
                     { path: 'pages/listaPacientes', component: ListaPacientesComponent },

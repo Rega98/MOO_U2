@@ -7,6 +7,9 @@ export class Misc {
     static statusPendiente:string = 'Pendiente';
     static statusAtendida:string = 'Atendida';
     static statusCancelada:string = 'Cancelada';
+
+    static statusActivo:number = 1;
+    static statusInactivo:number = 0;
     
     static formatearFecha(dia:number, mes:number, anio:number):string {
         let fecha = '';

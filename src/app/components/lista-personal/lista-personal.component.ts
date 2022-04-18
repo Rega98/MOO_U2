@@ -30,17 +30,26 @@ export class ListaPersonalComponent implements OnInit {
     }
   }
 
+  estaActivo(status:number):boolean {
+    if(status == Misc.statusActivo) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  agregarUsuario(){
+    this.router.navigate(['home/pages/registraUsuario']);
+  }
+
   redireccionaMenu(){
     //Pendiente el enrutamiento de los componentes
     this.router.navigate(['home']);
   }
 
-  User:any;
-
-  irABajaPersonal(user){
+  irABajaPersonal(userId){
     //Pendiente el enrutamiento de los componentes
-    this.User = user.id;
-    this.router.navigate(['home/pages/bajaPersonal/' + this.User]);
+    this.router.navigate(['home/pages/bajaPersonal/'+userId]);
   }
 
 }
