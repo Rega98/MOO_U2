@@ -22,18 +22,6 @@ export class AgendarCitaComponent implements OnInit {
   hora:Date;
   fechaAtencion:Date;
 
-  /*Esto es del paciente, no se utilizó
-  pacintes:any;
-  selectedPaciente:any;
-  date:Date;
-  dropdownItems:any;
-  selectedMeed:any;
-  formPaciente: boolean;
-  nombre:any;
-  sexo: string;
-  selectedCategory: any;
-  categories: any[] = [{name: 'Masculino', key: 'M'}, {name: 'Femenino', key: 'F'}];
-  */
 
   constructor(private rutas: Router) { }
 
@@ -112,9 +100,5 @@ export class AgendarCitaComponent implements OnInit {
   cancelarCita(){
     this.rutas.navigate(['home/pages/citas']);
   }
-
-  /*openRegisterPaciente(){
-    this.formPaciente = true;
-  }*/
 
 }

@@ -16,11 +16,27 @@ export class RegistraConsultaComponent implements OnInit {
   usr:Medico;
   consulta:Consulta;
   listaPacientes:any;
-  nuevoPaciente:boolean = true;
+  nuevoPaciente:boolean;
+
+  
+  pacintes:any;
+  selectedPaciente:any;
+  date:Date;
+  dropdownItems:any;
+  selectedMeed:any;
+  formPaciente: boolean;
+  nombre:any;
+  sexo: string;
+  selectedCategory: any;
+  categories: any[] = [{name: 'Masculino', key: 'M'}, {name: 'Femenino', key: 'F'}];
+  registroConsulta: 'sinPaciente' | 'conPaciente' = 'sinPaciente';
+  
+
   constructor() { }
 
   ngOnInit(): void {
-    if(Sesion.getInstancia(new Usuario()).getUsuario().tipo == 'Medico') {
+    this.registroConsulta = 'conPaciente'
+   /* if(Sesion.getInstancia(new Usuario()).getUsuario().tipo == 'Medico') {
       this.usr = Sesion.getInstancia(new Usuario()).getUsuario() as Medico;
       this.cita = new Cita();
       this.cita.id = 0;//this.activatedRoute.snapshot.params.id;
@@ -33,11 +49,31 @@ export class RegistraConsultaComponent implements OnInit {
     } else {
       alert("No se hainiciado Sesión desde una cuenta de usuario Médico");
       this.redireccionaMenu();
-    }
+    }*/
+
+
+      this.pacintes = [
+      {
+        nombre: 'Adolfo Meza',
+        id:'123133'
+      },
+      {
+        nombre: 'Uriel Reyes',
+        id:'123134'
+      },
+      {
+        nombre: 'Lisset Rosete',
+        id:'123135'
+      },
+      {
+        nombre: 'Rodolfo Elias',
+        id:'123136'
+      }
+    ]
   }
 
   listarPacientes(): void {
-    this.nuevoPaciente = false;
+    //this.nuevoPaciente = false;
     this.listaPacientes = this.consulta.paciente.list();
   }
 
@@ -54,6 +90,12 @@ export class RegistraConsultaComponent implements OnInit {
   muestraFormularioPaciente(): void {
     //Muestra el formualrio Paciente
     this.nuevoPaciente = true;
+    this.registroConsulta = 'conPaciente';
+
+  }
+
+  muestraFormularioNormal():void{
+    this.registroConsulta = 'sinPaciente';
   }
 
   guardarConsulta(): void {

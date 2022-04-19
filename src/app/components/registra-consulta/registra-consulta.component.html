@@ -1,1 +1,112 @@
-<p>registra-consulta works!</p>
+<div class="card" *ngIf="registroConsulta == 'conPaciente'">
+    <p-fieldset legend="¿Desea resgistrar un nuevo pasiente antes de registrar la consulta?">
+        <div class="p-formgrid grid">
+            <div class="p-field p-col">
+                <button pButton pRipple type="button" label="No registrar" (click)="muestraFormularioNormal()" class="p-button-danger"></button>
+                
+            </div>
+            <div class="p-field p-col">
+                <button pButton pRipple type="button" label="Si Registrar Paciente" (click)="muestraFormularioPaciente()" class="p-button-success ml-4"></button>
+            </div>
+        </div>
+    </p-fieldset>
+</div>
+
+<div class="card" >
+    <div class="p-fluid p-formgrid grid">
+        <div class="field col-12 md:col-6">
+            <label>Fecha</label>
+            <p-calendar [showIcon]="true"></p-calendar>
+        </div>
+        <div class="field col-12 md:col-6">
+            <label>Nombre Paciente</label>
+            <p-dropdown [options]="pacintes" optionLabel="nombre" *ngIf="registroConsulta == 'sinPaciente'"></p-dropdown>
+            <input type="text" placeholder="Nombre del Paciente" pInputText class="w-full mb-3" style="padding:1rem;" *ngIf="registroConsulta == 'conPaciente'">
+        </div>
+        <div class="field col-12 md:col-6">
+            <label>Peso</label>
+            <input type="text" pInputText class="w-full mb-3" style="padding:1rem;">
+        </div>
+        <div class="field col-12 md:col-6">
+            <label>Temperatura</label>
+            <input type="text" pInputText class="w-full mb-3" style="padding:1rem;">
+        </div>
+        <div class="field col-12 md:col-6">
+            <label>Frecuencia Cardiaca</label>
+            <input type="text" pInputText class="w-full mb-3" style="padding:1rem;">
+        </div>
+        <div class="field col-12 md:col-6">
+            <label>Estatura</label>
+            <input type="text" pInputText class="w-full mb-3" style="padding:1rem;">
+        </div>
+        <div class="field col-12 md:col-12">
+            <label>Sintomas</label>
+            <textarea rows="1" cols="30" pInputTextarea></textarea>
+        </div>
+        <div class="field col-12 md:col-12">
+            <label>Descripcion de analisis medico</label>
+            <textarea rows="1" cols="30" pInputTextarea></textarea>
+        </div>
+        <div class="field col-12 md:col-12">
+            <label>Diagnostico</label>
+            <textarea rows="1" cols="30" pInputTextarea></textarea>
+        </div>
+        <div class="field col-12 md:col-12">
+            <label>Tratamiento</label>
+            <textarea rows="1" cols="30" pInputTextarea></textarea>
+        </div>
+    </div>
+
+</div>
+
+
+<p-dialog [(visible)]="nuevoPaciente" [style]="{width: '80vw'}">
+    <ng-template pTemplate="header">
+        <h4>Registro de paciente</h4>
+    </ng-template>
+    <div class="p-fluid p-formgrid grid">
+        <div class="field col-12 md:col-6">
+            <label>Nombre del paciente</label>
+            <input type="text" pInputText [(ngModel)]="nombre">  
+        </div>
+        <div class="field col-12 md:col-6">
+            <label>Apellido paterno</label>
+            <input type="text" pInputText>  
+        </div>
+        <div class="field col-12 md:col-6">
+            <label>Apellido materno</label>
+            <input type="text" pInputText>
+        </div>
+        <div class="field col-12 md:col-6">
+            <label>Sexo</label>
+            <div *ngFor="let category of categories" class="p-field-checkbox">
+                <p-radioButton [inputId]="category.key" name="category" [value]="category" [(ngModel)]="selectedCategory"></p-radioButton>
+                <label [for]="category.key">{{category.name}}</label>
+            </div>
+        </div>
+        <div class="field col-12 md:col-6">
+            <label for="timeonly">Fecha de nacimiento</label>
+            <p-calendar [(ngModel)]="date" [showIcon]="true" inputId="icon" appendTo="body"></p-calendar>
+        </div>
+        <div class="field col-12 md:col-6">
+            <label>Tipo de sangre</label>
+            <input type="text" pInputText>
+        </div>
+        <div class="field col-12 md:col-12">
+            <label>Alergias</label>
+            <textarea rows="1" cols="30" pInputTextarea></textarea>
+        </div>
+        <div class="field col-12 md:col-6">
+            <label >Telefono de contacto</label>
+            <p-inputNumber  [min]="0" [max]="100"></p-inputNumber>
+        </div>
+        <div class="field col-12 md:col-6">
+            <label >Email</label>
+            <input type="text" pInputText> 
+        </div>
+    </div>
+    <ng-template pTemplate="footer">
+        <button pButton pRipple type="button" label="Cancelar" class="p-button-danger mt-4"></button>
+        <button pButton pRipple type="button" label="Agregar" class="p-button-success mt-4"></button>
+    </ng-template>
+</p-dialog>
