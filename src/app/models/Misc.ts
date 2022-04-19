@@ -11,6 +11,23 @@ export class Misc {
     static statusActivo:number = 1;
     static statusInactivo:number = 0;
     
+    static formatearDias(dias:string[]):string {
+        let listaDias = '';
+        for(let i=0; i<dias.length; i++){
+            if(i == dias.length-1){
+                listaDias += dias[i];
+            } else {
+                listaDias += dias[i] + ', ';
+            }
+        }
+        return listaDias;
+    }
+
+    static formateaArrayDias(dias:string):string[] {
+        let arrayDias:string[] = dias.split(', ');
+        return arrayDias;
+    }
+    
     static formatearFecha(dia:number, mes:number, anio:number):string {
         let fecha = '';
         fecha += anio + '-';

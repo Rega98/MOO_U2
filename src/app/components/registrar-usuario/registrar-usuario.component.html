@@ -3,47 +3,79 @@
     <div class="p-fluid p-formgrid grid">
         <div class="field col-12 md:col-6">
             <label>Nombre de Usuario</label>
-            <input type="text" pInputText>  
+            <input [(ngModel)]="camposUsuario.nombreUsuario" id="nombreUsuario" type="text" pInputText placeholder="Nombre de Usuario" class="w-full mb-3" style="padding:1rem;">  
         </div>
         <div class="field col-12 md:col-6">
             <label>Contraseña</label>
-            <p-password [toggleMask]="true"></p-password>
+            <p-password [(ngModel)]="camposUsuario.contrasena" id="contrasena" [toggleMask]="true" placeholder="Contraseña" styleClass="w-full mb-3"></p-password>
         </div>
         <div class="field col-12 md:col-6">
             <label>Nombre</label>
-            <input type="text" pInputText>  
+            <input [(ngModel)]="camposUsuario.nombre" id="nombre" type="text" pInputText placeholder="Nombre" class="w-full mb-3" style="padding:1rem;">  
         </div>
         <div class="field col-12 md:col-6">
             <label>Apellido paterno</label>
-            <input type="text" pInputText>  
+            <input [(ngModel)]="camposUsuario.apellidoP" id="apellidoP" type="text" pInputText placeholder="Apellido Paterno" class="w-full mb-3" style="padding:1rem;">  
         </div>
         <div class="field col-12 md:col-6">
             <label>Apellido materno</label>
-            <input type="text" pInputText>
+            <input [(ngModel)]="camposUsuario.apellidoM" id="apellidoM" type="text" pInputText placeholder="Apellido Materno" class="w-full mb-3" style="padding:1rem;">
         </div>
         <div class="field col-12 md:col-6">
             <label for="timeonly">Fecha de nacimiento</label>
-            <p-calendar [showIcon]="true" inputId="icon" appendTo="body"></p-calendar>
+            <p-calendar [(ngModel)]="fechaNacimiento" id="fechaNacimiento" [showIcon]="true" inputId="icon" appendTo="body"></p-calendar>
         </div>
          <div class="field col-12 md:col-6">
-            <label >Email</label>
-            <input type="text" pInputText> 
+            <label>Email</label>
+            <input [(ngModel)]="camposUsuario.email" id="email" type="text" pInputText placeholder="Email" class="w-full mb-3" style="padding:1rem;"> 
         </div>
         <div class="field col-12 md:col-6">
-            <label >Telefono Celular</label>
-            <p-inputNumber  [min]="0" [max]="100"></p-inputNumber>
+            <label>Telefono Celular</label>
+            <p-inputNumber [(ngModel)]="camposUsuario.telCelular" id="telefonoCelular" [maxlength]="10" [useGrouping]="false" placeholder="Teléfono Celular" class="w-full mb-3"></p-inputNumber>
         </div>
         <div class="field col-12 md:col-6">
-            <label >Telefono de Fijo</label>
-            <p-inputNumber  [min]="0" [max]="100"></p-inputNumber>
+            <label>Telefono de Fijo</label>
+            <p-inputNumber [(ngModel)]="camposUsuario.telFijo" id="telefonoFijo" [maxlength]="10" [useGrouping]="false" placeholder="Teléfono fijo" class="w-full mb-3"></p-inputNumber>
         </div>
-        <div class="field col-12 md:col-6">
-            <label>Tipo</label>
-            <input type="text" pInputText>
-        </div>
+        <ng-template [ngIf]="esMedico">
+            <div class="field col-12 md:col-6">
+                <label for="timeonly">Inicio de la jornada de Atención</label>
+                <p-calendar [(ngModel)]="horaInicio" [timeOnly]="true" [hourFormat]="12" inputId="timeonly1"></p-calendar>
+            </div>
+            <div class="field col-12 md:col-6">
+                <label for="timeonly">Final de la jornada de Atención</label>
+                <p-calendar [(ngModel)]="horaFin" [timeOnly]="true" [hourFormat]="12" inputId="timeonly2"></p-calendar>
+            </div>
+            <div class="field col-12 md:col-6">
+                <label>Dias de Atención</label>
+                <div class="field-checkbox">
+                    <p-checkbox name="diasAtencion" value="Lunes" label="Lunes" [(ngModel)]="dias"></p-checkbox>
+                </div>
+                <div class="field-checkbox">
+                    <p-checkbox name="diasAtencion" value="Martes" label="Martes" [(ngModel)]="dias"></p-checkbox>
+                </div>
+                <div class="field-checkbox">
+                    <p-checkbox name="diasAtencion" value="Miércoles" label="Miércoles" [(ngModel)]="dias"></p-checkbox>
+                </div>
+                <div class="field-checkbox">
+                    <p-checkbox name="diasAtencion" value="Jueves" label="Jueves" [(ngModel)]="dias"></p-checkbox>
+                </div>
+                <div class="field-checkbox">
+                    <p-checkbox name="diasAtencion" value="Viernes" label="Viernes" [(ngModel)]="dias"></p-checkbox>
+                </div>
+                <div class="field-checkbox">
+                    <p-checkbox name="diasAtencion" value="Sábado" label="Sábado" [(ngModel)]="dias"></p-checkbox>
+                </div>
+            </div>
+            <div class="field col-12 md:col-6">
+                <label>Tarifa de Consulta</label>
+                <p-inputNumber [(ngModel)]="tarifaConsulta" inputId="tarifaConsulta" [showButtons]="true" buttonLayout="horizontal" spinnerMode="horizontal" [step]="0.50" 
+                decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" mode="currency" currency="MXN"></p-inputNumber>
+            </div>
+        </ng-template>
         <div class="field col-12 md:col-3">
-            <button pButton pRipple type="button" label="Cancelar" class="p-button-danger mt-4"></button>
-            <button pButton pRipple type="button" label="Agregar" class="p-button-success mt-4"></button>
+            <button pButton pRipple type="button" label="Cancelar" (click)="redireccionaMenu()" class="p-button-danger mt-4"></button>
+            <button pButton pRipple type="button" label="Agregar" (click)="guardarUsuario()" class="p-button-success mt-4"></button>
         </div>
     </div>
 </div>

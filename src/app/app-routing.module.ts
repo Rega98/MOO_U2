@@ -37,7 +37,7 @@ import { RegistrarUsuarioComponent } from './components/registrar-usuario/regist
                     { path: 'pages/listaPersonal', component: ListaPersonalComponent },
                     { path: 'pages/recibo', component: ReciboComponent },
                     { path: 'pages/registraConsulta', component: RegistraConsultaComponent },
-                    { path: 'pages/registraUsuario', component: RegistrarUsuarioComponent },
+                    { path: 'pages/registraUsuario/:tipo', component: RegistrarUsuarioComponent },
                 ],
             },
             { path: 'pages/error', component: ErrorComponent },

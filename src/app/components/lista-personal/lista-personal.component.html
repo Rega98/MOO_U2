@@ -3,7 +3,9 @@
     <p-toolbar styleClass="p-mb-4">
         <ng-template pTemplate="left">
             <ng-container>
-                <button pButton pRipple type="button" label="Registrar Personal" class="p-button-success p-mr-2" (click)="agregarUsuario()"></button>
+                <button pButton pRipple type="button" label="Registrar Medico" class="p-button-success p-mr-2" (click)="agregarUsuario(1)"></button>
+                &nbsp;
+                <button pButton pRipple type="button" label="Registrar Recepcionista" class="p-button-success p-mr-2" (click)="agregarUsuario(0)"></button>
             </ng-container>
         </ng-template>
         <ng-template  pTemplate="right">
@@ -45,13 +47,19 @@
                 <td>{{user.telCelular}}</td>
                 <td>{{user.telFijo}}</td>
                 <td>{{user.tipo}}</td>
-                <ng-template [ngIf]="estaActivo(user.status)" [ngIfElse]="other">
-                    <td>Activo</td>
-                    <td><button pButton pRipple icon="pi pi-user-minus" class="p-button-rounded p-button-danger" (click)="irABajaPersonal(user.id)"></button></td>
+                <ng-template [ngIf]="noEsAdmin(user.tipo)" [ngIfElse]="otherAdmin">
+                    <ng-template [ngIf]="estaActivo(user.status)" [ngIfElse]="other">
+                        <td>Activo</td>
+                        <td><button pButton pRipple icon="pi pi-user-minus" class="p-button-rounded p-button-danger" (click)="irABajaPersonal(user.id)"></button></td>
+                    </ng-template>
+                    <ng-template #other>
+                        <td>Inactivo</td>
+                        <td><button pButton pRipple disabled icon="pi pi-user-minus" class="p-button-rounded p-button-danger"></button></td>
+                    </ng-template>
                 </ng-template>
-                <ng-template #other>
-                    <td>Inactivo</td>
-                    <td><button pButton pRipple disabled icon="pi pi-user-minus" class="p-button-rounded p-button-danger"></button></td>
+                <ng-template #otherAdmin>
+                    <td>Activo</td>
+                    <td></td>
                 </ng-template>
             </tr>
         </ng-template>

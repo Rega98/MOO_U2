@@ -38,8 +38,22 @@ export class ListaPersonalComponent implements OnInit {
     }
   }
 
-  agregarUsuario(){
-    this.router.navigate(['home/pages/registraUsuario']);
+  noEsAdmin(tipo:string):boolean {
+    if(tipo != Misc.tipoAdministrador) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  agregarUsuario(esMedico:number){
+    let tipo:string = '';
+    if(esMedico == 1){
+      tipo = Misc.tipoMedico;
+    } else {
+      tipo = Misc.tipoRecepcionista;
+    }
+    this.router.navigate(['home/pages/registraUsuario/'+tipo]);
   }
 
   redireccionaMenu(){

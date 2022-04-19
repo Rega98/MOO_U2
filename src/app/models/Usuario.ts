@@ -32,7 +32,7 @@ export class Usuario {
     
     public list():IUsuario[] {
         //Retorna un json con la lista de usuarios
-       return Data.listaUsuarios;
+        return Data.listaUsuarios;
     }
 
     public search():boolean {
