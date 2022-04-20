@@ -12,7 +12,7 @@ export class ReciboComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.cita.id = 0//this.activatedRoute.snapshot.params.id;
+   /* this.cita.id = 1//this.activatedRoute.snapshot.params.id;
     if(this.cita.search()) {
       let medico = new Medico();
       medico.id = this.cita.medico;
@@ -28,7 +28,7 @@ export class ReciboComponent implements OnInit {
     } else {
       alert("No se encontró la Cita");
       this.redireccionaMenu();
-    }
+    }*/
   }
 
   redireccionaMenu(): void {
