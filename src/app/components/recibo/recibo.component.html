@@ -6,31 +6,31 @@
             </div>
             <div class="field col-4 md:col-4 text-center">
                 <strong>Id cita:</strong>
-                <p>1</p>
+                <p>{{ cita.id }}</p>
             </div>
             <div class="field col-4 md:col-4 text-center">
                 <strong>Fecha de registro:</strong>
-                <p>15/04/22</p>
+                <p>{{ cita.fechaRegistro }}</p>
             </div>
             <div class="field col-4 md:col-4 text-center">
                 <strong>Nombre del paciente:</strong>
-                <p>Adolfo</p>
+                <p>{{ cita.nombrePaciente }}</p>
             </div>
             <div class="field col-4 md:col-4 text-center">
                 <strong>Fecha de atención:</strong>
-                <p>15/04/22</p>
+                <p>{{ cita.fechaAtencion }}</p>
             </div>
             <div class="field col-4 md:col-4 text-center">
                 <strong>Hora de atencion:</strong>
-                <p>10:00 pm</p>
+                <p>{{ cita.horaAtencion }}</p>
             </div>
             <div class="field col-4 md:col-4 text-center">
                 <strong>Medico:</strong>
-                <p>Medico</p>
+                <p>{{ medico.nombre }} {{ medico.apellidoP }} {{ medico.apellidoM }}</p>
             </div>
             <div class="field col-4 md:col-4 text-center">
                 <strong>Monto de consulta:</strong>
-                <p>$ 100 MXN</p>
+                <p>$ {{medico.tarifaConsulta}} MXN</p>
             </div>
             <div class="field col-4 md:col-4 text-center">
                 

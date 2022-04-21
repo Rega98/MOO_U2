@@ -35,7 +35,7 @@ import { RegistrarUsuarioComponent } from './components/registrar-usuario/regist
                     { path: 'pages/historialPaciente', component: HistorialPacienteComponent },
                     { path: 'pages/listaPacientes', component: ListaPacientesComponent },
                     { path: 'pages/listaPersonal', component: ListaPersonalComponent },
-                    { path: 'pages/recibo', component: ReciboComponent },
+                    { path: 'pages/recibo/:citaId', component: ReciboComponent },
                     { path: 'pages/registraConsulta', component: RegistraConsultaComponent },
                     { path: 'pages/registraUsuario/:tipo', component: RegistrarUsuarioComponent },
                 ],
