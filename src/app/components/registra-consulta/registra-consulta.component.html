@@ -74,46 +74,46 @@
     <div class="p-fluid p-formgrid grid">
         <div class="field col-12 md:col-6">
             <label>Nombre del paciente</label>
-            <input type="text" pInputText>  
+            <input type="text" [(ngModel)]="paciente.nombre"  pInputText>  
         </div>
         <div class="field col-12 md:col-6">
             <label>Apellido paterno</label>
-            <input type="text" pInputText>  
+            <input type="text" [(ngModel)]="paciente.apellidoP" pInputText>  
         </div>
         <div class="field col-12 md:col-6">
             <label>Apellido materno</label>
-            <input type="text" pInputText>
+            <input type="text" [(ngModel)]="paciente.apellidoM" pInputText>
         </div>
         <div class="field col-12 md:col-6">
             <label>Sexo</label>
-            <!--<div *ngFor="let category of categories" class="p-field-checkbox">
-                <p-radioButton [inputId]="category.key" name="category" [value]="category" [(ngModel)]="selectedCategory"></p-radioButton>
+            <div *ngFor="let category of categories" class="p-field-checkbox">
+                <p-radioButton [inputId]="category.key" name="category" [value]="category.name" [(ngModel)]="paciente.sexo"></p-radioButton>
                 <label [for]="category.key">{{category.name}}</label>
-            </div>-->
+            </div>
         </div>
         <div class="field col-12 md:col-6">
             <label for="timeonly">Fecha de nacimiento</label>
-            <p-calendar  [showIcon]="true" inputId="icon" appendTo="body"></p-calendar>
+            <p-calendar [(ngModel)]="fechaNacimiento"  [showIcon]="true" inputId="icon" appendTo="body"></p-calendar>
         </div>
         <div class="field col-12 md:col-6">
             <label>Tipo de sangre</label>
-            <input type="text" pInputText>
+            <input [(ngModel)]="paciente.tipoSangre" type="text" pInputText>
         </div>
         <div class="field col-12 md:col-12">
             <label>Alergias</label>
-            <textarea rows="1" cols="30" pInputTextarea></textarea>
+            <textarea [(ngModel)]="paciente.alergias" rows="1" cols="30" pInputTextarea></textarea>
         </div>
         <div class="field col-12 md:col-6">
             <label >Telefono de contacto</label>
-            <p-inputNumber  [min]="0" [max]="100"></p-inputNumber>
+            <input [(ngModel)]="paciente.telContacto" type="text" pInputText>
         </div>
         <div class="field col-12 md:col-6">
             <label >Email</label>
-            <input type="text" pInputText> 
+            <input [(ngModel)]="paciente.email" type="text" pInputText> 
         </div>
     </div>
     <ng-template pTemplate="footer">
         <button pButton pRipple type="button" label="Cancelar" class="p-button-danger mt-4"></button>
-        <button pButton pRipple type="button" label="Agregar" class="p-button-success mt-4"></button>
+        <button pButton pRipple type="button" label="Agregar" (click)="registrarPaciente()" class="p-button-success mt-4"></button>
     </ng-template>
 </p-dialog>

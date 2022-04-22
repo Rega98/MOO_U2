@@ -23,8 +23,9 @@ export class RegistraConsultaComponent implements OnInit {
   nuevoPaciente:boolean;
   fechaRegistro:Date;
 
- registroConsulta: 'sinPaciente' | 'conPaciente' = 'sinPaciente';
-  
+  registroConsulta: 'sinPaciente' | 'conPaciente' = 'sinPaciente';
+  categories: any[] = [{name: 'Masculino', key: 'M'}, {name: 'Femenino', key: 'F'}];
+  fechaNacimiento:Date;
 
  constructor(private router:Router, private activatedRoute: ActivatedRoute) {
   this.cita = new Cita();
@@ -88,6 +89,14 @@ export class RegistraConsultaComponent implements OnInit {
     regConsulta.registrarConsulta(this.nuevoPaciente);
     this.redireccionaMenu();
   }
+
+  registrarPaciente(){
+    this.paciente.fechaNac = Misc.formatearFecha(this.fechaNacimiento.getDate(), this.fechaNacimiento.getMonth()+1, this.fechaNacimiento.getFullYear())
+    //let regPaciente: Paciente = new Paciente();
+    this.paciente.save();
+    this.listarPacientes();
+    this.nuevoPaciente = false;
+  }
   /*
   guardarConsulta(): void {
     if(this.nuevoPaciente) {
@@ -128,6 +137,10 @@ export class RegistraConsultaComponent implements OnInit {
   
   cancelar(){
     this.router.navigate(['home/pages/citas']);
+  }
+
+  cancelar2(){
+    this.nuevoPaciente = false;
   }
 
 }
