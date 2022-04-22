@@ -76,6 +76,11 @@ export class VerCitasComponent implements OnInit {
     this.rutas.navigate(['home/pages/recibo/'+citaId]); 
   }
 
+  atender(citaId){
+    console.log(citaId);
+    this.rutas.navigate(['home/pages/registraConsulta/'+citaId]); 
+  }
+
   Agregar(){
 
     this.rutas.navigate(['home/pages/agregarcita']);

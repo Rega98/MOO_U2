@@ -16,7 +16,7 @@
     {
         "id": 2,
         "nombreUsuario": "UsuarioRecepcionista1",
-        "contrasena": "Abc123",
+        "contrasena": "1234",
         "nombre": "Arturo Uriel",
         "apellidoP": "García",
         "apellidoM": "Medina",
@@ -30,7 +30,7 @@
     {
     	"id": 3,
         "nombreUsuario": "UsuarioMedico1",
-        "contrasena": "Abc123",
+        "contrasena": "1234",
         "nombre": "Ana Beatriz",
         "apellidoP": "Moreno",
         "apellidoM": "Soto",

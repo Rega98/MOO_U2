@@ -10,7 +10,7 @@ export class Consulta {
     private _sintomas:string;
     private _peso:number;
     private _temperatura:number;
-    private _frecuanciaCardiaca:number;
+    private _frecuenciaCardiaca:number;
     private _estatura:number;
     private _descripcionAnalisisMedico:string;
     private _diagnostico:string;
@@ -24,7 +24,7 @@ export class Consulta {
         this._sintomas = '';
         this._peso = 0.0;
         this._temperatura = 0.0;
-        this._frecuanciaCardiaca = 0.0;
+        this._frecuenciaCardiaca = 0.0;
         this._estatura = 0.0;
         this._descripcionAnalisisMedico = '';
         this._diagnostico = '';
@@ -65,7 +65,7 @@ export class Consulta {
                 this._sintomas = consulta.sintomas;
                 this._peso = consulta.peso;
                 this._temperatura = consulta.temperatura;
-                this._frecuanciaCardiaca = consulta.frecuanciaCardiaca;
+                this._frecuenciaCardiaca = consulta.frecuenciaCardiaca;
                 this._estatura = consulta.estatura;
                 this._descripcionAnalisisMedico = consulta.descripcionAnalisisMedico;
                 this._diagnostico = consulta.diagnostico;
@@ -90,7 +90,7 @@ export class Consulta {
             sintomas: this._sintomas,
             peso: this._peso,
             temperatura: this._temperatura,
-            frecuanciaCardiaca:this._frecuanciaCardiaca,
+            frecuenciaCardiaca:this._frecuenciaCardiaca,
             estatura: this._estatura,
             descripcionAnalisisMedico: this._descripcionAnalisisMedico,
             diagnostico: this._diagnostico,
@@ -114,7 +114,7 @@ export class Consulta {
                 consulta.sintomas = this._sintomas;
                 consulta.peso = this._peso;
                 consulta.temperatura = this._temperatura;
-                consulta.frecuanciaCardiaca = this._frecuanciaCardiaca;
+                consulta.frecuenciaCardiaca = this._frecuenciaCardiaca;
                 consulta.estatura = this._estatura;
                 consulta.descripcionAnalisisMedico = this._descripcionAnalisisMedico;
                 consulta.diagnostico = this._diagnostico;
@@ -183,11 +183,11 @@ export class Consulta {
     }
 
     get frecuenciaCardiaca():number {
-        return this._frecuanciaCardiaca;
+        return this._frecuenciaCardiaca;
     }
     
     set frecuenciaCardiaca(value:number) {
-        this._frecuanciaCardiaca = value;
+        this._frecuenciaCardiaca = value;
     }
 
     get estatura():number {

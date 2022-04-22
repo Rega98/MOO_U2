@@ -56,7 +56,7 @@
                 <ng-template [ngIf]="esMedico">
                     <td>
                         <ng-template [ngIf]="estaPendiente(product.status)" [ngIfElse]="otherMedico">
-                            <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success"></button>
+                            <button pButton pRipple icon="pi pi-pencil" (click)="atender(product.id)" class="p-button-rounded p-button-success"></button>
                         </ng-template>
                         <ng-template #otherMedico>
                             <button pButton pRipple disabled icon="pi pi-pencil" class="p-button-rounded p-button-success"></button>

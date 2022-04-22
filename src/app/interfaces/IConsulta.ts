@@ -6,7 +6,7 @@ export interface IConsulta {
 	sintomas: string,
     peso: number,
     temperatura: number,
-    frecuanciaCardiaca: number,
+    frecuenciaCardiaca: number,
     estatura: number,
     descripcionAnalisisMedico: string,
     diagnostico: string,
