@@ -6,12 +6,15 @@ import { SesionStarter } from "./SesionStarter";
 import { Usuario } from "./Usuario";
 
 export class SesionStarterProxy implements ISesionStarter {
+    //El proxy se encarga de realizar la validación de las credenciales de sesión.
+    //Si encuentra las credenciales insertadas, registradas en el sistema, inicia una nueva sesión
     private _sesionStarter:SesionStarter;
 
     constructor(){
         this._sesionStarter = new SesionStarter();
     }
-    
+    //Implementación del método de la interfaz ISesionStarter, en este se realiza la validación
+    //de las credenciales insertadas
     public iniciarSesion(usuario: Usuario): boolean {
         let sesion:boolean = false;
         if(usuario.validarUsuario()){

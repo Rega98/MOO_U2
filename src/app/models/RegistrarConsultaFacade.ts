@@ -3,6 +3,9 @@ import { Consulta } from "./Consulta";
 import { Paciente } from "./Paciente";
 
 export class RegistrarConsultaFacade {
+    //Dado que el proceso de registro de consulta puede considerarse complejo, pues el proceso
+    //que se sigue varia en funcion de si se requiere registrar o no un nuevo paciente, el 
+    //patrón Facade permite ocultar esta complejidad al usuario, simplificandolo en un solo método
     protected _consulta:Consulta;
     protected _cita:Cita;
 

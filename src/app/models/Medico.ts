@@ -13,7 +13,11 @@ export class Medico extends Usuario {
     private _horarioAtencion:string;
     private _diasAtencion:string;
     private _tarifaConsulta:number;
+    //Implementación del patrón Prototype. 
+    //Se utiliza para tener un objeto cita en limpio para no inicializarlo multiples veces
     private _citaPrototype:Cita;
+    //Implementación del patrón builder.
+    //Objeto para realizar en autmático la construcción de objetos del tipo Consulta.
     private _consultaBuilder:ConsultaBuilder;
 
     constructor() {
@@ -26,6 +30,8 @@ export class Medico extends Usuario {
     }
     
     public nuevaConsulta():Consulta {
+        //Utilización del builder. Se generará una consulta con el id del
+        //objeto Médico con el que se esté trabajando
         this._consultaBuilder = new ConsultaBuilder();
         this._consultaBuilder.build(this.id);
         return this._consultaBuilder.getResult();
@@ -98,6 +104,7 @@ export class Medico extends Usuario {
     }
 
     public getNuevaCita():Cita {
+        //Utilización del propotype. Regresa un clon del objeto Cita inicializado.
         return this._citaPrototype.clonar();
     }
 
@@ -124,7 +131,8 @@ export class Medico extends Usuario {
     }
 
     public clonar():this {
-        //Aun está pendiente de pruebas
+        //TS tiene el método Object.create(), que sería el equivalente a la implemntación de
+        //la interfaz cloneable en Java
         const clone = Object.create(this);
         return clone;
     }

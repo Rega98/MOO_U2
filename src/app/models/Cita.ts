@@ -118,9 +118,9 @@ export class Cita {
     }
 
     public clonar():this {
-        //Aun está pendiente de pruebas
+        //TS tiene el método Object.create(), que sería el equivalente a la implemntación de
+        //la interfaz cloneable en Java
         const clone = Object.create(this);
-        //clone.medico = Object.create(this.medico);
         return clone;
     }
 

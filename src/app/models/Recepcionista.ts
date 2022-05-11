@@ -13,7 +13,8 @@ export class Recepcionista extends Usuario {
     }
 
     public clonar():this {
-        //Clona la instancia de medico
+        //TS tiene el método Object.create(), que sería el equivalente a la implemntación de
+        //la interfaz cloneable en Java
         const clone = Object.create(this);
         return clone;
     }
