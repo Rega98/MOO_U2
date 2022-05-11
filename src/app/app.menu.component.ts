@@ -55,6 +55,12 @@ export class AppMenuComponent implements OnInit {
                     {label: 'Registrar Usuario', icon: 'pi pi-fw pi-user-plus', routerLink:'pages/registraUsuario'},
                     {label: 'Baja de Personal', icon: 'pi pi-fw pi-user-minus', routerLink:'pages/bajaPersonal/user'},
                 ]
+            },
+            {
+                label:'Sesión',
+                items:[
+                    {label: 'Cerrar Sesión', icon: 'pi pi-fw pi-user', routerLink:'pages/test'},
+                ]
             }
         ];
     }
