@@ -28,8 +28,8 @@ export class AppMenuComponent implements OnInit {
                 label: 'Inicio',
                 items:[
                     {label: 'Tablero',icon: 'pi pi-fw pi-home', routerLink: ['/home']},
-                    {label: 'Generar Recibo', icon: 'pi pi-fw pi-wallet', routerLink:'pages/recibo/citaId'},
-                    {label: 'Registrar Consulta', icon: 'pi pi-fw pi-pencil', routerLink:'pages/registraConsulta'},
+                    /*{label: 'Generar Recibo', icon: 'pi pi-fw pi-wallet', routerLink:'pages/recibo/citaId'},
+                    {label: 'Registrar Consulta', icon: 'pi pi-fw pi-pencil', routerLink:'pages/registraConsulta'},*/
                     
                 ]
             },
@@ -37,23 +37,23 @@ export class AppMenuComponent implements OnInit {
                 label: 'Citas',
                 items: [
                     {label: 'Citas', icon: 'pi pi-fw pi-id-card', routerLink: 'pages/citas'},
-                    {label: 'Agregar Cita', icon: 'pi pi-fw pi-plus-circle', routerLink: 'pages/agregarcita'},
-                    {label: 'Cancelar Cita', icon: 'pi pi-fw pi-minus-circle', routerLink:'pages/cancelarCita'},
+                    /*{label: 'Agregar Cita', icon: 'pi pi-fw pi-plus-circle', routerLink: 'pages/agregarcita'},
+                    {label: 'Cancelar Cita', icon: 'pi pi-fw pi-minus-circle', routerLink:'pages/cancelarCita'},*/
                 ]
             },
             {
                 label:'Pacientes',
                 items:[
                     {label: 'Lista de Pacientes', icon: 'pi pi-fw pi-users', routerLink:'pages/listaPacientes'},
-                    {label: 'Historial del paciente', icon: 'pi pi-fw pi-file', routerLink:'pages/historialPaciente'},
+                    /*{label: 'Historial del paciente', icon: 'pi pi-fw pi-file', routerLink:'pages/historialPaciente'},*/
                 ]
             },
             {
                 label:'Personal',
                 items:[
                     {label: 'Lista de Personal ', icon: 'pi pi-fw pi-user', routerLink:'pages/listaPersonal'},
-                    {label: 'Registrar Usuario', icon: 'pi pi-fw pi-user-plus', routerLink:'pages/registraUsuario'},
-                    {label: 'Baja de Personal', icon: 'pi pi-fw pi-user-minus', routerLink:'pages/bajaPersonal/user'},
+                    /*{label: 'Registrar Usuario', icon: 'pi pi-fw pi-user-plus', routerLink:'pages/registraUsuario'},
+                    {label: 'Baja de Personal', icon: 'pi pi-fw pi-user-minus', routerLink:'pages/bajaPersonal/user'},*/
                 ]
             },
             {
