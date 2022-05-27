@@ -32,7 +32,7 @@ import { RegistrarUsuarioComponent } from './components/registrar-usuario/regist
                     { path: 'pages/test', component: TestComponent },
                     { path: 'pages/bajaPersonal/:userId', component: BajaPersonalComponent },
                     { path: 'pages/cancelarCita/:citaId', component: CancelarCitaComponent },
-                    { path: 'pages/historialPaciente', component: HistorialPacienteComponent },
+                    { path: 'pages/historialPaciente/:pacienteId', component: HistorialPacienteComponent },
                     { path: 'pages/listaPacientes', component: ListaPacientesComponent },
                     { path: 'pages/listaPersonal', component: ListaPersonalComponent },
                     { path: 'pages/recibo/:citaId', component: ReciboComponent },
