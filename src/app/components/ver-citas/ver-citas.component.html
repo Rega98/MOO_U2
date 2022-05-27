@@ -17,6 +17,8 @@
         </ng-template>
     </p-toolbar>
     <br><br><br>
+    <!-- Para la implementación de patrones de Comportamiento se decidió utilizar el iterator
+    que ofrece el framework de Angular para listar los elementos contenidos en el arreglo en tablas --->
     <p-table [value]="citas" responsiveLayout="scroll" #tc [globalFilterFields]="['id','fechaRegistro','nombrePaciente','fechaAtencion', 'horaAtencon', 'observaciones', 'status' ,'medico']" >
         <ng-template pTemplate="header">
             <tr>

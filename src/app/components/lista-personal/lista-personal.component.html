@@ -18,6 +18,8 @@
         </ng-template>
     </p-toolbar>
     <br><br><br>
+    <!-- Para la implementación de patrones de Comportamiento se decidió utilizar el iterator
+    que ofrece el framework de Angular para listar los elementos contenidos en el arreglo en tablas -->
     <p-table [value]="userList" responsiveLayout="scroll" [globalFilterFields]="['id','nombreUsuario','nombre','apellidoP', 'apellidoM', 'fechaNac', 'email' ,'telCelular', 'telFijo', 'estaus', 'tipo']" #tu>
         <ng-template pTemplate="header">
             <tr>
